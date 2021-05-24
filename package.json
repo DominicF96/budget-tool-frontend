@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run translations:check"
+      "pre-commit": "npm run test && npm run translations:check"
     }
   },
   "browserslist": {
