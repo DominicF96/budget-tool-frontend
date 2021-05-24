@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl';
 import reportWebVitals from './reportWebVitals';
+
+import App from './App';
+
+import './styles/index.scss';
+import { getLang } from './utils/browserFunctions';
 
 ReactDOM.render(
   <React.StrictMode>
+    <IntlProvider messages={{ dict: "dictionnaire" }} locale={getLang()}
     <App />
   </React.StrictMode>,
   document.getElementById('root')

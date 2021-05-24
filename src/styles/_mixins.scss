@@ -1,0 +1,88 @@
+// ------------------ COLOR THEME ------------------ //
+
+// Accents
+
+$primary_0: #2fa36b;
+$primary_1: #3ab579;
+$primary_2: #cfffe8;
+
+$primary_text: #a1ffc0;
+
+$secondary_0: #1b629f;
+$secondary_1: #2475bc;
+$secondary_2: #8fcbff;
+
+$secondary_text: #a1e9ff;
+
+// Grays
+
+$gray_0: #12263f;
+$gray_1: #617692;
+$gray_2: #d2ddec;
+$gray_3: #edf1f5;
+$gray_4: #f5f7fa;
+
+$white: #fff;
+
+// --------------------- GLOBAL -------------------- //
+
+$container-width: 1100px;
+
+// -------------------- SPACINGS ------------------- //
+
+$spacing_0: 4px; // ll
+$spacing_1: 8px; // llll
+$spacing_2: 12px; // llllll
+$spacing_3: 16px; // llllllll
+$spacing_4: 24px; // llllllllllll
+$spacing_5: 32px; // llllllllllllllll
+$spacing_6: 48px; // llllllllllllllllllllllll
+$spacing_7: 64px; // llllllllllllllllllllllllllllllll
+$spacing_8: 96px; // llllllllllllllllllllllllllllllllllllllllllllllll
+$spacing_9: 128px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+$spacing_10: 192px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+$spacing_11: 256px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+$spacing_12: 384px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll...
+$spacing_13: 512px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll...
+$spacing_14: 640px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll...
+$spacing_15: 768px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll...
+
+// ------------------- TEXT SCALE ------------------ //
+
+$text_size_0: 12px; // llllllllllll
+$text_size_1: 14px; // llllllllllllll
+$text_size_2: 16px; // llllllllllllllll
+$text_size_3: 18px; // llllllllllllllllll
+$text_size_4: 20px; // llllllllllllllllllll
+$text_size_5: 24px; // llllllllllllllllllllllll
+$text_size_6: 30px; // llllllllllllllllllllllllllllll
+$text_size_7: 36px; // llllllllllllllllllllllllllllllllllll
+$text_size_8: 48px; // llllllllllllllllllllllllllllllllllllllllllllllll
+$text_size_9: 60px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+$text_size_10: 72px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+
+// ------------------ SCREEN SIZES ----------------- //
+
+$screen_lg: 992px;
+
+// --------------------- TIMING -------------------- //
+
+$fast: 0.125s;
+$medium: 0.2s;
+$slow: 0.275s;
+
+// --------------------- MIXINS -------------------- //
+
+@mixin transition($property: none) {
+  -webkit-transition: $property $fast ease-in-out;
+  -moz-transition: $property $fast ease-in-out;
+  -ms-transition: $property $fast ease-in-out;
+  -o-transition: $property $fast ease-in-out;
+  transition: $property $fast ease-in-out;
+}
+
+@mixin border-radius() {
+  -webkit-border-radius: $spacing_2;
+  -moz-border-radius: $spacing_2;
+  border-radius: $spacing_2;
+}

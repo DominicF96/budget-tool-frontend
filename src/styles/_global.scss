@@ -1,0 +1,86 @@
+@import "_mixins.scss";
+
+@font-face {
+  font-family: "Poppins";
+  src: "../fonts/Poppins/Poppins-Light.ttf";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: "/fonts/Poppins/Poppins-Regular.ttf";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: "/fonts/Poppins/Poppins-Medium.ttf";
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+html,
+body,
+#__next {
+  padding: 0;
+  margin: 0;
+  width: 100% !important;
+  font-family: Poppins, -apple-system, Roboto, sans-serif !important;
+  // background-color: $gray_4;
+  color: $gray_1 !important;
+  font-size: $text_size_3;
+  line-height: $spacing_5;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: $gray_0;
+  text-align: center;
+  margin-bottom: $spacing_4;
+  @media only screen and (min-width: $screen_lg) {
+    text-align: left;
+  }
+}
+
+h1 {
+  font-size: $text_size_8;
+}
+
+h2 {
+  font-size: $text_size_7;
+}
+
+.container-fluid {
+  position: relative;
+  padding: 110px 20px;
+  padding-bottom: 0;
+  z-index: 1;
+  @media only screen and (min-width: $screen_lg) {
+    max-width: $container-width;
+    margin: auto;
+    padding: 110px 0px;
+    padding-bottom: 0;
+  }
+}
+
+.no_overflow_container {
+  @media only screen and (min-width: $screen_lg) {
+    overflow: hidden;
+  }
+}
+
+.anchor {
+  position: relative;
+  top: -50px;
+  height: 1px;
+  width: 100%;
+}
