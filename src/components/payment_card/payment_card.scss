@@ -1,0 +1,59 @@
+@import "src/styles/_mixins.scss";
+
+.payment_card.card {
+  border: 1px solid $gray_3;
+  border-radius: 25px !important;
+  color: $gray_1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  &.payment_card_selected {
+    @include box-shadow();
+  }
+  &:hover {
+    @include box-shadow();
+  }
+  .info_container {
+    flex-grow: 8;
+    padding: $spacing_4;
+    .rebate_section {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: $text_size_0;
+      .old_price {
+        text-decoration: line-through;
+        font-size: $text_size_5;
+      }
+    }
+    .price {
+      color: $secondary_1;
+      font-size: $text_size_7;
+      font-weight: bold;
+    }
+  }
+  .rebate_container {
+    border-radius: 25px !important;
+    background-color: $secondary_1;
+    color: white;
+    width: $spacing_7;
+    padding-top: $spacing-4;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    .rebate_text {
+      line-height: 8px;
+      font-size: 8px;
+      display: block;
+    }
+  }
+  .circle_select {
+    position: absolute;
+    top: $spacing_2;
+    right: calc(#{$spacing_7} / 2);
+    transform: translateX(50%);
+    height: $spacing_5;
+  }
+}

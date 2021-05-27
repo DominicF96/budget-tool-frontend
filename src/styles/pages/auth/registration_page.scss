@@ -1,0 +1,14 @@
+#registration_page {
+  margin-top: $spacing_4;
+  @media only screen and (min-width: $screen_lg) {
+    text-align: center !important;
+    margin-top: $spacing_10;
+  }
+  h1 {
+    padding-top: $spacing_2;
+  }
+  .premium_toggle_group {
+    display: flex;
+    justify-content: space-between;
+  }
+}

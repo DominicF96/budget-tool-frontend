@@ -24,10 +24,6 @@ $gray_4: #f5f7fa;
 
 $white: #fff;
 
-// --------------------- GLOBAL -------------------- //
-
-$container-width: 1100px;
-
 // -------------------- SPACINGS ------------------- //
 
 $spacing_0: 4px; // ll
@@ -63,6 +59,7 @@ $text_size_10: 72px; // llllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 // ------------------ SCREEN SIZES ----------------- //
 
+$screen_md: 768px;
 $screen_lg: 992px;
 
 // --------------------- TIMING -------------------- //
@@ -81,8 +78,64 @@ $slow: 0.275s;
   transition: $property $fast ease-in-out;
 }
 
+@mixin box-shadow() {
+  box-shadow: 0 1px 1px rgba($gray_0, 0.05), 0 2px 2px rgba($gray_0, 0.05),
+    0 4px 4px rgba($gray_0, 0.05), 0 6px 8px rgba($gray_0, 0.05),
+    0 8px 16px rgba($gray_0, 0.05);
+}
+
 @mixin border-radius() {
   -webkit-border-radius: $spacing_2;
   -moz-border-radius: $spacing_2;
   border-radius: $spacing_2;
+}
+
+// ------------------- ANIMATIONS ------------------ //
+
+.fade-in {
+  animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

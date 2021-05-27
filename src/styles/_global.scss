@@ -1,26 +1,6 @@
 @import "_mixins.scss";
 
-@font-face {
-  font-family: "Poppins";
-  src: "../fonts/Poppins/Poppins-Light.ttf";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  src: "/fonts/Poppins/Poppins-Regular.ttf";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  src: "/fonts/Poppins/Poppins-Medium.ttf";
-  font-style: medium;
-  font-weight: 500;
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 html,
 body,
@@ -44,43 +24,47 @@ h5,
 h6 {
   font-weight: 400;
   color: $gray_0;
-  text-align: center;
   margin-bottom: $spacing_4;
-  @media only screen and (min-width: $screen_lg) {
-    text-align: left;
-  }
 }
 
 h1 {
-  font-size: $text_size_8;
+  font-size: $text_size_6;
+  @media only screen and (min-width: $screen_lg) {
+    font-size: $text_size_7;
+  }
 }
 
 h2 {
-  font-size: $text_size_7;
-}
-
-.container-fluid {
-  position: relative;
-  padding: 110px 20px;
-  padding-bottom: 0;
-  z-index: 1;
+  font-size: $text_size_5;
   @media only screen and (min-width: $screen_lg) {
-    max-width: $container-width;
-    margin: auto;
-    padding: 110px 0px;
-    padding-bottom: 0;
+    font-size: $text_size_4;
   }
 }
 
-.no_overflow_container {
+h3 {
+  font-size: $text_size_4;
   @media only screen and (min-width: $screen_lg) {
-    overflow: hidden;
+    font-size: $text_size_3;
   }
 }
 
-.anchor {
-  position: relative;
-  top: -50px;
-  height: 1px;
-  width: 100%;
+h4 {
+  font-size: $text_size_3;
+  @media only screen and (min-width: $screen_lg) {
+    font-size: $text_size_2;
+  }
+}
+
+h5 {
+  font-size: $text_size_2;
+  @media only screen and (min-width: $screen_lg) {
+    font-size: $text_size_2;
+  }
+}
+
+h6 {
+  font-size: $text_size_2;
+  @media only screen and (min-width: $screen_lg) {
+    font-size: $text_size_2;
+  }
 }

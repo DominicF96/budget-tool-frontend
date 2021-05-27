@@ -1,0 +1,75 @@
+@import "src/styles/_mixins";
+
+.form-control {
+  font-family: Poppins, -apple-system, Roboto, sans-serif !important;
+  border-radius: 9999px;
+  border-color: $gray_2;
+  color: $gray_0;
+  &::placeholder {
+    color: $gray_1;
+  }
+}
+
+.btn {
+  border-radius: 9999px;
+  border: 0 !important;
+  @include transition(box-shadow);
+  &:hover {
+    @include box-shadow();
+  }
+  &.btn-primary {
+    background-color: $secondary_1;
+    &:active,
+    &:focus {
+      background-color: $secondary_0 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-outline-primary {
+    background-color: $secondary_2;
+    color: $secondary_0;
+    &:active,
+    &:focus {
+      background-color: $secondary_2 !important;
+      color: $secondary_0 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-secondary {
+    background-color: $primary_1;
+    &:active,
+    &:focus {
+      background-color: $primary_1 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-outline-secondary {
+    background-color: $primary_2;
+    color: $primary_0;
+    &:active,
+    &:focus {
+      background-color: $primary_2 !important;
+      color: $primary_0 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-link {
+    color: $secondary_1;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.form-check {
+  padding-left: $spacing_5;
+  line-height: $text-size_7;
+  .form-check-input {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 999px !important;
+  }
+  .form-check-label {
+    margin-left: $spacing_4;
+  }
+}

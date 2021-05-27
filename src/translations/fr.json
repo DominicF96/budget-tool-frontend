@@ -1,3 +1,18 @@
 {
-  "hello": "Bonjour !"
+  "auth.login.username": "Identifiant",
+  "auth.login.password": "Mot de passe",
+  "auth.login.login": "Se connecter",
+  "auth.login.forgot_password": "Mot de passe oublié ?",
+  "auth.login.create_account": "Créer un compte",
+  "auth.login.need_help": "Besoin d'aide ?",
+  "auth.forgot_password.forgot_password": "Oublié votre mot de passe ?",
+  "auth.forgot_password.explanation": "Aucun soucis, entrez votre courriel, nous vous enverrons un lien pour réinitialiser votre mot de passe !",
+  "auth.forgot_password.email": "Courriel",
+  "auth.forgot_password.send": "Envoyer",
+  "auth.validate.thanks": "Merci d'avoir confirmé votre compte !",
+  "auth.validate.proceed": "C'est maintenant le temps de prendre en main vos finances personnelles !",
+  "auth.validate.go_to_login": "Aller à la page de connexion",
+  "legal.all_rights_reserved": "Tous droits réservés.",
+  "auth.registration.tell_us_about_you": "Pour commencer, parlez-nous un peu de vous !",
+  "rebate": "de rabais"
 }

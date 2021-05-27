@@ -1,8 +1,17 @@
 // Imported
 @import "~bootstrap/scss/bootstrap";
 
+// Overrides
+@import "./overrides/bootstrap.scss";
+
 // Global
 @import "./_mixins.scss";
 @import "./_global.scss";
+
+// Pages
+@import "./pages/auth/login_page.scss";
+@import "./pages/auth/registration_page.scss";
+@import "./pages/auth/forgot_password_page.scss";
+@import "./pages/auth/validation_page.scss";
 
 // Components

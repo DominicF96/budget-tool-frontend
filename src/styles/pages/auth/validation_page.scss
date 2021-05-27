@@ -1,0 +1,13 @@
+#validation_page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  margin-top: $spacing_9;
+  justify-content: center;
+  align-items: center;
+  #spice_up_img {
+    width: $spacing_13;
+    margin: auto;
+  }
+}

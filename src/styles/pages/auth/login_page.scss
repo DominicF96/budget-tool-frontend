@@ -1,0 +1,70 @@
+#login_page {
+  #login_page_forms_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: auto;
+    text-align: center;
+    margin-top: $spacing_7;
+    @media only screen and (min-width: $screen_lg) {
+      margin-top: $spacing_10;
+    }
+  }
+  #oreus_logo {
+    height: 150px;
+    margin-bottom: $spacing_4;
+  }
+  #spice_up_img {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: $spacing_13;
+    z-index: -1;
+  }
+  #lotus_top_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+  }
+  #login_btn {
+    width: 100%;
+    display: block;
+    @media only screen and (min-width: $screen_lg) {
+      width: auto;
+      margin: auto;
+      padding-left: $spacing_8;
+      padding-right: $spacing_8;
+      max-width: $spacing_12;
+    }
+  }
+  #need_help {
+    position: absolute;
+    top: $spacing_1;
+    right: $spacing_1;
+  }
+  .form-control {
+    text-align: center;
+  }
+  #create_account_btn {
+    position: fixed;
+    bottom: $spacing_4;
+    width: calc(100% - 30px);
+    @media only screen and (min-width: $screen_md) {
+      position: relative;
+      width: auto;
+      margin: auto;
+      margin-top: $spacing_8;
+      padding-left: $spacing_6;
+      padding-right: $spacing_6;
+      max-width: $spacing_11;
+    }
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    padding: $spacing_5;
+    font-size: $text_size_0;
+    width: 100%;
+  }
+}

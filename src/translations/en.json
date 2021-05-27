@@ -1,3 +1,17 @@
 {
-  "hello": "Hello !"
+  "auth.login.username": "Username",
+  "auth.login.password": "Password",
+  "auth.login.login": "Login",
+  "auth.login.forgot_password": "Forgot password ?",
+  "auth.login.create_account": "Create an Account",
+  "auth.login.need_help": "Need Help ?",
+  "auth.forgot_password.forgot_password": "Forgot your Password ?",
+  "auth.forgot_password.explanation": "No problem, provide your email and we'll send you a link to reset your password.",
+  "auth.forgot_password.email": "Email",
+  "auth.forgot_password.send": "Send",
+  "auth.validate.thanks": "Thanks, your account is confirmed !",
+  "auth.validate.proceed": "It's time to take control of your personnal finances !",
+  "auth.validate.go_to_login": "Go to Login",
+  "legal.all_rights_reserved": "All Rights Reserved.",
+  "rebate": "off"
 }
