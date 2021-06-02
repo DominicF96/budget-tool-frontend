@@ -1,23 +1,24 @@
-#validation_page {
+#validation_email_sent_page {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin: auto;
-  margin-top: $spacing_6;
+  margin-top: $spacing_5;
   @media only screen and (min-width: $screen_lg) {
     margin-top: $spacing_9;
   }
   justify-content: center;
-  max-width: $spacing_14;
   align-items: center;
+  max-width: $spacing_14;
   .back_to_login_btn {
     margin-top: $spacing_4;
     padding-left: $spacing_5;
     padding-right: $spacing_5;
   }
   #spice_up_img {
-    width: $spacing_13;
+    width: $spacing_12;
     margin: auto;
     max-width: 100%;
+    margin-bottom: $spacing_8;
   }
 }

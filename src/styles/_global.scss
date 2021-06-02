@@ -68,3 +68,7 @@ h6 {
     font-size: $text_size_2;
   }
 }
+
+a:not(.btn) {
+  color: $secondary_1 !important;
+}

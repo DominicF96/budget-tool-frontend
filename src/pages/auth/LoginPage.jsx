@@ -37,12 +37,12 @@ const LoginPage = ({ intl }) => {
               <Form.Control
                 type="text"
                 className="mb-3 mt-2"
-                placeholder={intl.formatMessage({ id: "auth.login.username" })}
+                placeholder={intl.formatMessage({ id: "generic.fields.username" })}
               />
               <Form.Control
                 type="password"
                 className="my-3"
-                placeholder={intl.formatMessage({ id: "auth.login.password" })}
+                placeholder={intl.formatMessage({ id: "generic.fields.password" })}
               />
               <Button
                 variant="primary"
@@ -74,7 +74,7 @@ const LoginPage = ({ intl }) => {
         {new Date().getFullYear() > 2021 ? (
           <>&nbsp;-&nbsp;{new Date().getFullYear()}</>
         ) : null}
-        , <FormattedMessage id="legal.all_rights_reserved" />
+        , <FormattedMessage id="generic.copyrights.all_rights_reserved" />
       </footer>
     </div>
   );

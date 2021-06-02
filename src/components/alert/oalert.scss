@@ -1,0 +1,28 @@
+@import "src/styles/_mixins.scss";
+
+.oalert {
+  background-color: white !important;
+  padding-left: $spacing_6 !important;
+  border-radius: 25px !important;
+  .oalert_icon {
+    position: absolute;
+    top: $spacing_3;
+    left: $spacing_3;
+  }
+  &.alert-primary{
+    color: $secondary_2;
+    border-color: $secondary_2;
+  }
+  &.alert-success{
+    color: $primary_2;
+    border-color: $primary_2;
+  }
+  &.alert-danger{
+    color: $danger_1;
+    border-color: $danger_1;
+  }
+  &.alert-warning{
+    color: $warning_2;
+    border-color: $warning_2;
+  }
+}

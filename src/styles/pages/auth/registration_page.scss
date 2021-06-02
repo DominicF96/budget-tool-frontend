@@ -7,8 +7,33 @@
   h1 {
     padding-top: $spacing_2;
   }
+  #spice_up_img {
+    max-width: 100%;
+  }
   .premium_toggle_group {
     display: flex;
     justify-content: space-between;
+  }
+  .password_hints {
+    small {
+      display: block;
+      @include transition(color);
+      &.requirement_met {
+        color: $primary_1;
+      }
+    }
+  }
+  .secured_by {
+    margin-left: $spacing_2;
+    margin-top: $spacing_2;
+    a {
+      display: flex;
+      align-content: center;
+    }
+  }
+  .oh_no_honeypot {
+    // We hide this field as it's used as a honeypot for bots.
+    position: absolute;
+    left: -99999px;
   }
 }

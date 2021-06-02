@@ -1,8 +1,10 @@
 // Imported
 @import "~bootstrap/scss/bootstrap";
+@import "~react-toastify/dist/ReactToastify.css";
 
 // Overrides
 @import "./overrides/bootstrap.scss";
+@import "./overrides/react-toastify.scss";
 
 // Global
 @import "./_mixins.scss";
@@ -13,5 +15,6 @@
 @import "./pages/auth/registration_page.scss";
 @import "./pages/auth/forgot_password_page.scss";
 @import "./pages/auth/validation_page.scss";
+@import "./pages/auth/validation_email_sent_page.scss";
 
 // Components

@@ -1,0 +1,12 @@
+@import "src/styles/_mixins";
+
+.Toastify__toast--error {
+  background-color: $danger_1 !important;
+}
+
+.Toastify__toast--warning {
+  background-color: $warning_1 !important;
+}
+.Toastify__toast--success {
+  background-color: $primary_1 !important;
+}

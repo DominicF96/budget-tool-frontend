@@ -44,7 +44,7 @@ const ForgotPasswordPage = ({ intl }) => {
                   type="email"
                   className="mt-4"
                   placeholder={intl.formatMessage({
-                    id: "auth.forgot_password.email",
+                    id: "generic.fields.email",
                   })}
                 />
                 <Button
@@ -65,7 +65,7 @@ const ForgotPasswordPage = ({ intl }) => {
         {new Date().getFullYear() > 2021 ? (
           <>&nbsp;-&nbsp;{new Date().getFullYear()}</>
         ) : null}
-        , <FormattedMessage id="legal.all_rights_reserved" />
+        , <FormattedMessage id="generic.copyrights.all_rights_reserved" />
       </footer>
     </div>
   );
