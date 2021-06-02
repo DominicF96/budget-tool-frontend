@@ -21,6 +21,7 @@ import PaymentCard from "../../components/payment_card/PaymentCard";
 import * as publicIp from "public-ip";
 import { get, post } from "../../utils/http/fetching_utils";
 import OAlert from "../../components/alert/OAlert";
+import { getLang } from "../../utils/browserFunctions";
 
 const RegistrationPage = ({ intl }) => {
   const history = useHistory();
@@ -39,6 +40,7 @@ const RegistrationPage = ({ intl }) => {
     // the value on the backend will eliminate some automated
     // registrations.
     honeypot: "This form was possibly completed by a human.",
+    language: getLang(),
   });
 
   useEffect(() => {
@@ -242,7 +244,8 @@ const RegistrationPage = ({ intl }) => {
               );
             }
           });
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.error(err);
         toast.error(
           intl.formatMessage({
