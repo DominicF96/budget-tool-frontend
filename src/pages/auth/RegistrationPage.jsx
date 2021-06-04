@@ -16,9 +16,7 @@ import {
   faStripe,
 } from "@fortawesome/free-brands-svg-icons";
 import { toast } from "react-toastify";
-
 import PaymentCard from "../../components/payment_card/PaymentCard";
-import * as publicIp from "public-ip";
 import { get, post } from "../../utils/http/fetching_utils";
 import OAlert from "../../components/alert/OAlert";
 import { getLang } from "../../utils/browserFunctions";
@@ -200,58 +198,45 @@ const RegistrationPage = ({ intl }) => {
   };
 
   const createAccount = () => {
-    publicIp
-      .v4()
-      .then((public_ip_v4) => {
-        post("/auth/register", {
-          ...data,
-          form_completion_time: moment().diff(pageOpenedAt),
-          public_ip_v4,
-        })
-          .then((res) => {
-            console.log(res);
-            history.push(`/auth/check_inbox/${res.data.email_validation_id}`);
-            toast.success(
-              "Un courriel de confirmation a été envoyé, veuillez vérifier votre boîte de réception."
-            );
-          })
-          .catch((err) => {
-            if (
-              err &&
-              err.verbose &&
-              err.verbose.toLowerCase().indexOf("email") !== -1
-            ) {
-              toast.error(
-                intl.formatMessage({
-                  id: "error.registration.email_not_unique",
-                })
-              );
-            } else if (
-              err &&
-              err.verbose &&
-              err.verbose.toLowerCase().indexOf("username") !== -1
-            ) {
-              toast.error(
-                intl.formatMessage({
-                  id: "error.registration.username_not_unique",
-                })
-              );
-            } else {
-              toast.error(
-                intl.formatMessage({
-                  id: "error.registration.failed_to_create_account",
-                })
-              );
-            }
-          });
+    post("/auth/register", {
+      ...data,
+      form_completion_time: moment().diff(pageOpenedAt),
+    })
+      .then((res) => {
+        console.log(res);
+        history.push(`/auth/check_inbox/${res.data.temporary_link_id}`);
+        toast.success(
+          "Un courriel de confirmation a été envoyé, veuillez vérifier votre boîte de réception."
+        );
       })
       .catch((err) => {
-        console.error(err);
-        toast.error(
-          intl.formatMessage({
-            id: "error.registration.failed_to_create_account",
-          })
-        );
+        if (
+          err &&
+          err.verbose &&
+          err.verbose.toLowerCase().indexOf("email") !== -1
+        ) {
+          toast.error(
+            intl.formatMessage({
+              id: "error.registration.email_not_unique",
+            })
+          );
+        } else if (
+          err &&
+          err.verbose &&
+          err.verbose.toLowerCase().indexOf("username") !== -1
+        ) {
+          toast.error(
+            intl.formatMessage({
+              id: "error.registration.username_not_unique",
+            })
+          );
+        } else {
+          toast.error(
+            intl.formatMessage({
+              id: "error.registration.failed_to_create_account",
+            })
+          );
+        }
       });
   };
 
