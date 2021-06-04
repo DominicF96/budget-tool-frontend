@@ -1,5 +1,4 @@
 const axios = require('axios').default;
-const publicIp = require("public-ip");
 
 const BASE_URL = "http://localhost:2222"; // TODO: Environment variables to handle production base URL.
 
