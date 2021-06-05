@@ -69,5 +69,7 @@
   "auth.check_inbox.confirm_email": "To access all the platform's functionnalities, you need to confirm your email.",
   "auth.check_inbox.resend": "Send Again",
   "auth.check_inbox.validation_email_resent": "The email was sent.",
-  "error.check_inbox.unable_to_send_email": "Unable to send the email. Please try again in a few seconds."
+  "error.check_inbox.unable_to_send_email": "Unable to send the email. Please try again in a few seconds.",
+  "auth.reset_password.title": "Reset your password",
+  "auth.reset_password.reset": "Reset"
 }

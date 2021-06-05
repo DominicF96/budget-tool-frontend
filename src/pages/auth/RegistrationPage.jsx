@@ -20,6 +20,19 @@ import PaymentCard from "../../components/payment_card/PaymentCard";
 import { get, post } from "../../utils/http/fetching_utils";
 import OAlert from "../../components/alert/OAlert";
 import { getLang } from "../../utils/browserFunctions";
+import {
+  isPasswordConfirmInvalid,
+  isPasswordConfirmValid,
+  isPasswordInvalid,
+  isPasswordValid,
+  MIN_PASSWORD_LENGTH,
+  reCCExp,
+  reEmail,
+  reOneDigit,
+  reOneLowercase,
+  reOneSpecialChar,
+  reOneUppercase,
+} from "../../utils/validation/auth";
 
 const RegistrationPage = ({ intl }) => {
   const history = useHistory();
@@ -56,56 +69,6 @@ const RegistrationPage = ({ intl }) => {
 
   const updateData = (key, value) => {
     setData({ ...data, [key]: value });
-  };
-
-  // Implement the same schema validation library used by the backend.
-  const MIN_PASSWORD_LENGTH = 8;
-  const reOneLowercase = new RegExp(/(?=.*[a-z])/);
-  const reOneUppercase = new RegExp(/(?=.*[A-Z])/);
-  const reOneDigit = new RegExp(/(?=.*\d)/);
-  const reOneSpecialChar = new RegExp(/(?=.*\W)/);
-  const reEmail = new RegExp(
-    // eslint-disable-next-line no-control-regex
-    /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-  );
-  const reCCExp = new RegExp(/(0[1-9]|10|11|12)\/[0-9]{2}/);
-
-  const testAllPasswordRegex = (password) => {
-    return (
-      reOneLowercase.test(password) &&
-      reOneUppercase.test(password) &&
-      reOneDigit.test(password) &&
-      reOneSpecialChar.test(password) &&
-      password.length >= MIN_PASSWORD_LENGTH
-    );
-  };
-
-  const isPasswordValid = () => {
-    return data.password && testAllPasswordRegex(data.password);
-  };
-  const isPasswordinvalid = () => {
-    return (
-      data.password &&
-      data.password.length > 0 &&
-      !testAllPasswordRegex(data.password)
-    );
-  };
-  const isPasswordConfirmValid = () => {
-    return (
-      data.password &&
-      data.confirm_password &&
-      data.password.indexOf(data.confirm_password) !== -1 &&
-      data.password.length === data.confirm_password.length
-    );
-  };
-  const isPasswordConfirmInvalid = () => {
-    return (
-      data.password &&
-      !(
-        data.password.indexOf(data.confirm_password) !== -1 &&
-        data.password.length === data.confirm_password.length
-      )
-    );
   };
 
   /**
@@ -162,7 +125,10 @@ const RegistrationPage = ({ intl }) => {
       toast.error(
         intl.formatMessage({ id: "error.registration.invalid_email" })
       );
-    } else if (isPasswordinvalid() || isPasswordConfirmInvalid()) {
+    } else if (
+      isPasswordInvalid(data.password) ||
+      isPasswordConfirmInvalid(data.password, data.confirm_password)
+    ) {
       toast.error(
         intl.formatMessage({
           id: "error.registration.weak_or_password_mismatch",
@@ -334,8 +300,8 @@ const RegistrationPage = ({ intl }) => {
           />
           <Form.Control
             type="password"
-            isValid={isPasswordValid()}
-            isInvalid={isPasswordinvalid()}
+            isValid={isPasswordValid(data.password)}
+            isInvalid={isPasswordInvalid(data.password)}
             placeholder={intl.formatMessage({
               id: "generic.fields.password",
             })}
@@ -405,8 +371,8 @@ const RegistrationPage = ({ intl }) => {
           ) : null}
           <Form.Control
             type="password"
-            isValid={isPasswordConfirmValid()}
-            isInvalid={isPasswordConfirmInvalid()}
+            isValid={isPasswordConfirmValid(data.password, data.confirm_password)}
+            isInvalid={isPasswordConfirmInvalid(data.password, data.confirm_password)}
             placeholder={intl.formatMessage({
               id: "generic.fields.confirm_password",
             })}

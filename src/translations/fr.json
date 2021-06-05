@@ -70,5 +70,7 @@
   "auth.check_inbox.confirm_email": "Pour accéder à l'ensemble des fonctionnalités de la plateforme, vous devez confirmer votre adresse courriel.",
   "auth.check_inbox.resend": "Renvoyer le courriel",
   "auth.check_inbox.validation_email_resent": "Le courriel a été envoyé.",
-  "error.check_inbox.unable_to_send_email": "Impossible d'envoyer le courriel. Veuillez réessayer dans quelques secondes."
+  "error.check_inbox.unable_to_send_email": "Impossible d'envoyer le courriel. Veuillez réessayer dans quelques secondes.",
+  "auth.reset_password.title": "Réinitialisez votre mot de passe",
+  "auth.reset_password.reset": "Réinitialiser"
 }

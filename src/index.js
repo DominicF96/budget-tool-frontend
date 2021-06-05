@@ -23,6 +23,7 @@ import en from "./translations/en.json";
 import { getLang } from './utils/browserFunctions';
 
 import './styles/index.scss';
+import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 
 const dict = {
   fr,
@@ -39,6 +40,7 @@ ReactDOM.render(
           <Route path="/auth/login" component={LoginPage} />
           <Route path="/auth/register" component={RegistrationPage} />
           <Route path="/auth/forgot_password" component={ForgotPasswordPage} />
+          <Route path="/auth/reset_password/:id" component={ResetPasswordPage} />
           <Route path="/auth/validate/:id" component={ValidationPage} />
           <Route path="/auth/check_inbox/:id" component={ValidationEmailSentPage} />
           <Route path="/app" component={App} />
