@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Form, Row, Button } from "react-bootstrap";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useLocation } from "react-router";
 import { toast } from "react-toastify";
 import { post } from "../../utils/http/fetching_utils";
@@ -41,14 +41,16 @@ const ForgotPasswordPage = ({ intl }) => {
     ) {
       post(`/auth/reset_password/${id}`, { password: data.password })
         .then((res) => {
-          toast.success("Succesfully reset your password"); // TODO: Translate
+          toast.success(intl.formatMessage({ id: "password_reset.success" })); // TODO: Translate
           history.push("/auth/login");
         })
         .catch((err) => {
-          toast.error("Unable to reset."); //TODO: translate
+          toast.error(
+            intl.formatMessage({ id: "error.password_reset.unable_to_reset" })
+          );
         });
     } else {
-      toast.error("Invalid passwords, cannot proceed."); //TODO: translate
+      toast.error(intl.formatMessage({ id: "error.password_reset.bad_form" }));
     }
   };
 

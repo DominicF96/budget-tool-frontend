@@ -22,10 +22,12 @@ const ForgotPasswordPage = ({ intl }) => {
           toast.success("Check your emails");
         })
         .catch((err) => {
-          toast.error("Unable to send link."); //TODO: translate
+          toast.error(
+            intl.formatMessage({ id: "error.mailing.failed_to_send" })
+          );
         });
     } else {
-      toast.error("Invalid email, cannot proceed."); //TODO: translate
+      toast.error(intl.formatMessage({ id: "error.mailing.provide_valid_email" }));
     }
   };
 

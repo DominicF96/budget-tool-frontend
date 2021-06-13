@@ -1,25 +1,55 @@
 #registration_page {
-  margin-top: $spacing_4;
+  position: relative;
   @media only screen and (min-width: $screen_lg) {
-    text-align: center !important;
-    margin-top: $spacing_10;
+    padding: $spacing_3 $spacing_7;
   }
+  margin-top: $spacing_4;
   h1 {
     padding-top: $spacing_2;
+    @media only screen and (min-width: $screen_lg) {
+      margin-top: $spacing_8;
+      font-size: $text_size_8;
+      max-width: $screen_md;
+    }
+  }
+  #need_help {
+    display: block;
+    text-align: left;
   }
   #spice_up_img {
     max-width: 100%;
+    @media only screen and (min-width: $screen_md) {
+      width: 300px;
+    }
+    @media only screen and (min-width: $screen_lg) {
+      position: absolute;
+      top: $spacing_3;
+      right: $spacing_6;
+      width: 28%;
+    }
   }
   .premium_toggle_group {
     display: flex;
     justify-content: space-between;
   }
   .password_hints {
+    display: block !important;
     small {
       display: block;
       @include transition(color);
       &.requirement_met {
         color: $primary_1;
+      }
+    }
+  }
+  .payment_card_container {
+    @media only screen and (min-width: $screen_lg) {
+      position: relative;
+      margin-right: -$spacing_10;
+      .payment_card_btn_wrapper,
+      .payment_card {
+        height: 100%;
+        max-height: 145px;
       }
     }
   }
@@ -35,5 +65,13 @@
     // We hide this field as it's used as a honeypot for bots.
     position: absolute;
     left: -99999px;
+  }
+  footer {
+    position: relative !important;
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing_5 0;
+    font-size: $text_size_0;
+    width: 100%;
   }
 }

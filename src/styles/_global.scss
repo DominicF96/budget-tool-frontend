@@ -72,3 +72,14 @@ h6 {
 a:not(.btn) {
   color: $secondary_1 !important;
 }
+
+/** TEMPORARY **/
+.kv_pair {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-fluid {
+  max-width: $screen_xl;
+  margin: auto;
+}

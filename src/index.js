@@ -8,6 +8,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
 
 import App from './App';
 import ErrorPage from "./pages/ErrorPage";
@@ -17,6 +18,8 @@ import ValidationPage from './pages/auth/ValidationPage';
 import RegistrationPage from './pages/auth/RegistrationPage';
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 import ValidationEmailSentPage from './pages/auth/ValidationEmailSentPage';
+
+import store from './redux/reducers/_index';
 
 import fr from "./translations/fr.json";
 import en from "./translations/en.json";
@@ -33,23 +36,25 @@ const lang = getLang();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToastContainer />
-    <IntlProvider messages={dict[lang]} locale={lang} defaultLocale="en">
-      <Router>
-        <Switch>
-          <Route path="/auth/login" component={LoginPage} />
-          <Route path="/auth/register" component={RegistrationPage} />
-          <Route path="/auth/forgot_password" component={ForgotPasswordPage} />
-          <Route path="/auth/reset_password/:id" component={ResetPasswordPage} />
-          <Route path="/auth/validate/:id" component={ValidationPage} />
-          <Route path="/auth/check_inbox/:id" component={ValidationEmailSentPage} />
-          <Route path="/app" component={App} />
-          <Route path="/error500" component={ErrorPage} />
-          <Route path="/error404" component={ErrorPage} />
-          <Redirect from="/" to="/auth/login" />
-        </Switch>
-      </Router>
-    </IntlProvider>
+    <Provider store={store}>
+      <ToastContainer />
+      <IntlProvider messages={dict[lang]} locale={lang} defaultLocale="en">
+        <Router>
+          <Switch>
+            <Route path="/auth/login" component={LoginPage} />
+            <Route path="/auth/register" component={RegistrationPage} />
+            <Route path="/auth/forgot_password" component={ForgotPasswordPage} />
+            <Route path="/auth/reset_password/:id" component={ResetPasswordPage} />
+            <Route path="/auth/validate/:id" component={ValidationPage} />
+            <Route path="/auth/check_inbox/:id" component={ValidationEmailSentPage} />
+            <Route path="/app" component={App} />
+            <Route path="/error500" component={ErrorPage} />
+            <Route path="/error404" component={ErrorPage} />
+            <Redirect from="/" to="/auth/login" />
+          </Switch>
+        </Router>
+      </IntlProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

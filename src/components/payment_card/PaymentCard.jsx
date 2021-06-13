@@ -15,10 +15,13 @@ const PaymentCard = ({
   term,
 }) => {
   return (
-    <button className="payment_card_btn_wrapper" onClick={(e) => {
-      e.preventDefault();
-      onChange(id);
-    }}>
+    <button
+      className="payment_card_btn_wrapper"
+      onClick={(e) => {
+        e.preventDefault();
+        onChange(id);
+      }}
+    >
       <Card
         className={`payment_card ${isSelected ? "payment_card_selected" : ""}`}
       >
@@ -43,7 +46,7 @@ const PaymentCard = ({
             </div>
           ) : null}
           {price && price > 0 ? (
-            <div>
+            <div className="price-container">
               <>
                 <span className={`price ${!oldPrice ? "no_rebate" : ""}`}>
                   {price}C$
@@ -69,11 +72,11 @@ const PaymentCard = ({
               </>
             </div>
           ) : (
-            <>
+            <div className="free-text-container">
               <FormattedMessage id="auth.registration.payment_card.no_thanks" />
               ,&nbsp;
               <FormattedMessage id="auth.registration.payment_card.use_for_free" />
-            </>
+            </div>
           )}
         </div>
         {oldPrice ? (

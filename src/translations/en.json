@@ -71,5 +71,12 @@
   "auth.check_inbox.validation_email_resent": "The email was sent.",
   "error.check_inbox.unable_to_send_email": "Unable to send the email. Please try again in a few seconds.",
   "auth.reset_password.title": "Reset your password",
-  "auth.reset_password.reset": "Reset"
+  "auth.reset_password.reset": "Reset",
+  "error.mailing.failed_to_send": "We are unable to send the link, please try again later.",
+  "error.mailing.provide_valid_email": "Please provide a valid email.",
+  "error.login.provide_valid_credentials": "Please provide valid credentials.",
+  "error.login.bad_credentials": "Sorry, those credentials do not match any account.",
+  "error.password_reset.bad_form": "Please provide valid passwords",
+  "error.password_reset.unable_to_reset": "We can't change your password right now, please try again later.",
+  "password_reset.success": "Your password was changed!"
 }

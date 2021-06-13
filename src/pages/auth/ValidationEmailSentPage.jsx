@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { Button } from "react-bootstrap";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import { get } from "../../utils/http/fetching_utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
 const ValidationEmailSentPage = ({ intl }) => {
-  const history = useHistory();
   const location = useLocation();
   const [isSending, setIsSending] = useState(false);
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);

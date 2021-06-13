@@ -14,7 +14,7 @@
   border-radius: 9999px;
   border: 0 !important;
   @include transition(box-shadow);
-  &:hover {
+  &:not([disabled]):hover {
     @include box-shadow();
   }
   &.btn-primary {
