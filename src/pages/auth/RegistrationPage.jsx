@@ -49,22 +49,27 @@ const RegistrationPage = ({intl}) => {
     honeypot: "This form was possibly completed by a human.",
     language: getLang(),
   });
+  const [ccData, setCcData] = useState({});
 
   useEffect(() => {
     get("/stripe/get_prices")
-      .then((res) => {
+      .then(res => {
         setRetrievedPrices({
           price: res.data.data[0].unit_amount / 100,
           term: res.data.data[0].recurring.interval,
         }); // TODO: Support multiple prices
       })
-      .catch((err) => {
+      .catch(err => {
         console.error("An error occured while retrieving prices.", err);
       });
   }, []);
 
   const updateData = (key, value) => {
     setData({...data, [key]: value});
+  };
+
+  const updateCcData = (key, value) => {
+    setCcData({...ccData, [key]: value});
   };
 
   /**
@@ -82,7 +87,7 @@ const RegistrationPage = ({intl}) => {
           autoComplete="off"
           name="phone"
           type="text"
-          onChange={(e) => updateData("honeypot", e.target.value)}
+          onChange={e => updateData("honeypot", e.target.value)}
         />
         <Form.Control
           id="address"
@@ -90,7 +95,7 @@ const RegistrationPage = ({intl}) => {
           autoComplete="off"
           name="address"
           type="text"
-          onChange={(e) => updateData("honeypot", e.target.value)}
+          onChange={e => updateData("honeypot", e.target.value)}
         />
         <Form.Control
           id="email"
@@ -98,7 +103,7 @@ const RegistrationPage = ({intl}) => {
           autoComplete="off"
           name="email"
           type="text"
-          onChange={(e) => updateData("honeypot", e.target.value)}
+          onChange={e => updateData("honeypot", e.target.value)}
         />
       </Form.Group>
     );
@@ -160,14 +165,14 @@ const RegistrationPage = ({intl}) => {
       ...data,
       form_completion_time: moment().diff(pageOpenedAt),
     })
-      .then((res) => {
+      .then(res => {
         console.log(res);
         history.push(`/auth/check_inbox/${res.data.temporary_link_id}`);
         toast.success(
           "Un courriel de confirmation a été envoyé, veuillez vérifier votre boîte de réception."
         );
       })
-      .catch((err) => {
+      .catch(err => {
         if (err && err.verbose && err.verbose.toLowerCase().indexOf("email") !== -1) {
           toast.error(
             intl.formatMessage({
@@ -238,7 +243,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.firstname",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("firstname", e.target.value)}
+                    onChange={e => updateData("firstname", e.target.value)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -248,7 +253,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.lastname",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("lastname", e.target.value)}
+                    onChange={e => updateData("lastname", e.target.value)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -259,7 +264,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.email",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("email", e.target.value)}
+                    onChange={e => updateData("email", e.target.value)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -269,7 +274,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.sex",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("sex", e.target.value)}
+                    onChange={e => updateData("sex", e.target.value)}
                   >
                     <option value="not_specified">
                       {intl.formatMessage({
@@ -307,7 +312,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.username",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("username", e.target.value)}
+                    onChange={e => updateData("username", e.target.value)}
                   />
                   <Form.Control
                     type="password"
@@ -319,7 +324,7 @@ const RegistrationPage = ({intl}) => {
                     className="mt-3"
                     onFocus={() => setIsPasswordInfoOpen(true)}
                     onBlur={() => setIsPasswordInfoOpen(false)}
-                    onChange={(e) => updateData("password", e.target.value)}
+                    onChange={e => updateData("password", e.target.value)}
                   />
                   <Form.Control
                     type="password"
@@ -332,7 +337,7 @@ const RegistrationPage = ({intl}) => {
                       id: "generic.fields.confirm_password",
                     })}
                     className="mt-3"
-                    onChange={(e) => updateData("confirm_password", e.target.value)}
+                    onChange={e => updateData("confirm_password", e.target.value)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -430,7 +435,7 @@ const RegistrationPage = ({intl}) => {
                         ? data.selected_membership.indexOf("free") !== -1
                         : false
                     }
-                    onChange={(v) => updateData("selected_membership", v)}
+                    onChange={v => updateData("selected_membership", v)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -449,7 +454,7 @@ const RegistrationPage = ({intl}) => {
                             ? data.selected_membership.indexOf("monthly_early") !== -1
                             : false
                         }
-                        onChange={(v) => updateData("selected_membership", v)}
+                        onChange={v => updateData("selected_membership", v)}
                       />
                     </>
                   ) : (
@@ -516,7 +521,7 @@ const RegistrationPage = ({intl}) => {
                           id: "generic.fields.cc_number",
                         })}
                         className="mt-2"
-                        onChange={(e) => updateData("cc_number", e.target.value)}
+                        onChange={e => updateCcData("cc_number", e.target.value)}
                       />
                       <FontAwesomeIcon icon={faCcVisa} className="ml-3 mr-2" />
                       <FontAwesomeIcon icon={faCcMastercard} className="mr-2" />
@@ -535,7 +540,7 @@ const RegistrationPage = ({intl}) => {
                             }
                             pattern="/^[0-9]{2}/[0-9]{2}$/"
                             inputMode="numeric"
-                            onChange={(e) => updateData("cc_expiration", e.target.value)}
+                            onChange={e => updateCcData("cc_expiration", e.target.value)}
                           />
                         </Col>
                         <Col xs="6">
@@ -548,7 +553,7 @@ const RegistrationPage = ({intl}) => {
                             maxLength="4"
                             pattern="/^[0-9]{3,4}$/"
                             inputMode="numeric"
-                            onChange={(e) => updateData("cc_cvv", e.target.value)}
+                            onChange={e => updateCcData("cc_cvv", e.target.value)}
                           />
                         </Col>
                       </Row>
@@ -573,7 +578,7 @@ const RegistrationPage = ({intl}) => {
                 label={intl.formatMessage({
                   id: "auth.registration.sign_up_to_newsletter",
                 })}
-                onChange={(e) => updateData("subscribe_to_newsletter", e.target.checked)}
+                onChange={e => updateData("subscribe_to_newsletter", e.target.checked)}
               />
             </Form.Group>
             <Form.Group className="mt-3 premium_toggle_group">
@@ -603,7 +608,7 @@ const RegistrationPage = ({intl}) => {
                     .
                   </>
                 }
-                onChange={(e) =>
+                onChange={e =>
                   updateData("accept_terms_and_conditions", e.target.checked)
                 }
               />

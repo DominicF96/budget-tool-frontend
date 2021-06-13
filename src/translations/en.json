@@ -64,6 +64,7 @@
   "error.registration.email_not_unique": "This email is already in use.",
   "error.registration.username_not_unique": "This username is already in use.",
   "error.registration.failed_to_validate_follow_up": "If the problem persists, please contact us.",
+  "error.registration.failed_to_create_account": "We can't create your account at this time, please try again later.",
   "error.registration.validation_link_expired": "This validation link has expired, we sent you a new validation email, please check your inbox.",
   "auth.check_inbox.title": "Check your inbox !",
   "auth.check_inbox.confirm_email": "To access all the platform's functionnalities, you need to confirm your email.",
