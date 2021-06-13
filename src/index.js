@@ -1,37 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { IntlProvider } from 'react-intl';
-import { ToastContainer } from 'react-toastify';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import {IntlProvider} from "react-intl";
+import {ToastContainer} from "react-toastify";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {Provider} from "react-redux";
 
-import App from './App';
+import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
-import LoginPage from './pages/auth/LoginPage';
-import reportWebVitals from './reportWebVitals';
-import ValidationPage from './pages/auth/ValidationPage';
-import RegistrationPage from './pages/auth/RegistrationPage';
-import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
-import ValidationEmailSentPage from './pages/auth/ValidationEmailSentPage';
+import LoginPage from "./pages/auth/LoginPage";
+import reportWebVitals from "./reportWebVitals";
+import ValidationPage from "./pages/auth/ValidationPage";
+import RegistrationPage from "./pages/auth/RegistrationPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ValidationEmailSentPage from "./pages/auth/ValidationEmailSentPage";
 
-import store from './redux/reducers/_index';
+import store from "./redux/reducers/_index";
 
 import fr from "./translations/fr.json";
 import en from "./translations/en.json";
-import { getLang } from './utils/browserFunctions';
+import {getLang} from "./utils/browserFunctions";
 
-import './styles/index.scss';
-import ResetPasswordPage from './pages/auth/ResetPasswordPage';
+import "./styles/index.scss";
+import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 
 const dict = {
   fr,
-  en
-}
+  en,
+};
 const lang = getLang();
 
 ReactDOM.render(
@@ -56,7 +51,7 @@ ReactDOM.render(
       </IntlProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

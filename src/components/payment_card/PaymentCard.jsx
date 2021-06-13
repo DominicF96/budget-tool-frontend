@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import {Card} from "react-bootstrap";
 import PropTypes from "prop-types";
 
 import "./payment_card.scss";
-import { FormattedMessage } from "react-intl";
+import {FormattedMessage} from "react-intl";
 
 const PaymentCard = ({
   id,
@@ -22,9 +22,7 @@ const PaymentCard = ({
         onChange(id);
       }}
     >
-      <Card
-        className={`payment_card ${isSelected ? "payment_card_selected" : ""}`}
-      >
+      <Card className={`payment_card ${isSelected ? "payment_card_selected" : ""}`}>
         {isSelected ? (
           <img
             className="circle_select"
@@ -48,25 +46,17 @@ const PaymentCard = ({
           {price && price > 0 ? (
             <div className="price-container">
               <>
-                <span className={`price ${!oldPrice ? "no_rebate" : ""}`}>
-                  {price}C$
-                </span>
+                <span className={`price ${!oldPrice ? "no_rebate" : ""}`}>{price}C$</span>
                 {oldPrice ? (
                   <>
                     &nbsp;/&nbsp;
                     <span>
-                      <FormattedMessage
-                        id={`auth.registration.payment_card.${term}`}
-                      />
-                      *
+                      <FormattedMessage id={`auth.registration.payment_card.${term}`} />*
                     </span>
                   </>
                 ) : (
                   <div>
-                    <FormattedMessage
-                      id={`auth.registration.payment_card.${term}`}
-                    />
-                    *
+                    <FormattedMessage id={`auth.registration.payment_card.${term}`} />*
                   </div>
                 )}
               </>

@@ -1,5 +1,5 @@
-import { Button } from "bootstrap";
-import { useAccordionToggle } from "react-bootstrap";
+import {Button} from "bootstrap";
+import {useAccordionToggle} from "react-bootstrap";
 
 const BootstrapAccordionToggle = ({
   children,

@@ -1,12 +1,11 @@
 /**
  * Returns the standardized version of the browser's language.
- * 
+ *
  * @returns 'fr' or 'en'
  */
 const getLang = () => {
   let lang;
-  if (navigator.languages !== undefined)
-    lang = navigator.languages[0];
+  if (navigator.languages !== undefined) lang = navigator.languages[0];
   lang = navigator.language;
 
   // Standardizes language names.
@@ -15,8 +14,8 @@ const getLang = () => {
   } else {
     return "en";
   }
-}
+};
 
 module.exports = {
-  getLang
-}
+  getLang,
+};

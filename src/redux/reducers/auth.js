@@ -20,7 +20,7 @@ export default function auth(state = initialState, action = {}) {
         error: action.error,
       };
     case ON_LOGIN_SUCCESS:
-      return { ...state, loadingLogin: false, ...action.payload };
+      return {...state, loadingLogin: false, ...action.payload};
     case ON_LOGIN_FAILURE:
       return {
         ...state,

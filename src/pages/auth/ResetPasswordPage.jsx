@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Col, Form, Row, Button } from "react-bootstrap";
-import { FormattedMessage, injectIntl } from "react-intl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
-import { useHistory, useLocation } from "react-router";
-import { toast } from "react-toastify";
-import { post } from "../../utils/http/fetching_utils";
+import React, {useState} from "react";
+import {Col, Form, Row, Button} from "react-bootstrap";
+import {FormattedMessage, injectIntl} from "react-intl";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircle} from "@fortawesome/free-solid-svg-icons";
+import {useHistory, useLocation} from "react-router";
+import {toast} from "react-toastify";
+import {post} from "../../utils/http/fetching_utils";
 import {
   isPasswordValid,
   isPasswordConfirmValid,
@@ -13,7 +13,7 @@ import {
   isPasswordConfirmInvalid,
 } from "../../utils/validation/auth";
 
-const ForgotPasswordPage = ({ intl }) => {
+const ForgotPasswordPage = ({intl}) => {
   // TODO Merge in config file or something since its a
   // duplicate from registration and not using the same
   // validation library as the backend.
@@ -29,7 +29,7 @@ const ForgotPasswordPage = ({ intl }) => {
   const [data, setData] = useState({});
 
   const updateData = (key, value) => {
-    setData({ ...data, [key]: value });
+    setData({...data, [key]: value});
   };
 
   const resetPassword = (e) => {
@@ -39,25 +39,23 @@ const ForgotPasswordPage = ({ intl }) => {
       isPasswordValid(data.password) &&
       isPasswordConfirmValid(data.password, data.confirm_password)
     ) {
-      post(`/auth/reset_password/${id}`, { password: data.password })
+      post(`/auth/reset_password/${id}`, {password: data.password})
         .then((res) => {
-          toast.success(intl.formatMessage({ id: "password_reset.success" })); // TODO: Translate
+          toast.success(intl.formatMessage({id: "password_reset.success"})); // TODO: Translate
           history.push("/auth/login");
         })
         .catch((err) => {
-          toast.error(
-            intl.formatMessage({ id: "error.password_reset.unable_to_reset" })
-          );
+          toast.error(intl.formatMessage({id: "error.password_reset.unable_to_reset"}));
         });
     } else {
-      toast.error(intl.formatMessage({ id: "error.password_reset.bad_form" }));
+      toast.error(intl.formatMessage({id: "error.password_reset.bad_form"}));
     }
   };
 
   return (
     <div className="container-fluid fade-in" id="password_reset_page">
       <Row>
-        <Col xs="12" md={{ span: 4, offset: 4 }}>
+        <Col xs="12" md={{span: 4, offset: 4}}>
           <Row>
             <Col xs="12" className="order-3 order-md-1 text-center">
               <img
@@ -134,8 +132,7 @@ const ForgotPasswordPage = ({ intl }) => {
                       </small>
                       <small
                         className={
-                          data.password &&
-                          data.password.length >= MIN_PASSWORD_LENGTH
+                          data.password && data.password.length >= MIN_PASSWORD_LENGTH
                             ? "requirement_met"
                             : ""
                         }
@@ -148,10 +145,7 @@ const ForgotPasswordPage = ({ intl }) => {
                   ) : null}
                   <Form.Control
                     type="password"
-                    isValid={isPasswordConfirmValid(
-                      data.password,
-                      data.confirm_password
-                    )}
+                    isValid={isPasswordConfirmValid(data.password, data.confirm_password)}
                     isInvalid={isPasswordConfirmInvalid(
                       data.password,
                       data.confirm_password
@@ -160,9 +154,7 @@ const ForgotPasswordPage = ({ intl }) => {
                       id: "generic.fields.confirm_password",
                     })}
                     className="mt-3"
-                    onChange={(e) =>
-                      updateData("confirm_password", e.target.value)
-                    }
+                    onChange={(e) => updateData("confirm_password", e.target.value)}
                   />
                 </Form.Group>
                 <Button
@@ -177,10 +169,7 @@ const ForgotPasswordPage = ({ intl }) => {
                     !data.password ||
                     !data.confirm_password ||
                     isPasswordInvalid(data.password) ||
-                    isPasswordConfirmInvalid(
-                      data.password,
-                      data.confirm_password
-                    )
+                    isPasswordConfirmInvalid(data.password, data.confirm_password)
                   }
                 >
                   <FormattedMessage id="auth.reset_password.reset" />

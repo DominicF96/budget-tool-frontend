@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { injectIntl, FormattedMessage } from "react-intl";
-import { useHistory } from "react-router";
-import {
-  faChevronLeft,
-  faCircle,
-  faGem,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Form, Row} from "react-bootstrap";
+import {injectIntl, FormattedMessage} from "react-intl";
+import {useHistory} from "react-router";
+import {faChevronLeft, faCircle, faGem} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import moment from "moment";
 import {
   faCcAmex,
@@ -15,11 +11,11 @@ import {
   faCcVisa,
   faStripe,
 } from "@fortawesome/free-brands-svg-icons";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import PaymentCard from "../../components/payment_card/PaymentCard";
-import { get, post } from "../../utils/http/fetching_utils";
+import {get, post} from "../../utils/http/fetching_utils";
 import OAlert from "../../components/alert/OAlert";
-import { getLang } from "../../utils/browserFunctions";
+import {getLang} from "../../utils/browserFunctions";
 import {
   isPasswordConfirmInvalid,
   isPasswordConfirmValid,
@@ -34,7 +30,7 @@ import {
   reOneUppercase,
 } from "../../utils/validation/auth";
 
-const RegistrationPage = ({ intl }) => {
+const RegistrationPage = ({intl}) => {
   const history = useHistory();
 
   const [isPasswordInfoOpen, setIsPasswordInfoOpen] = useState(false);
@@ -68,7 +64,7 @@ const RegistrationPage = ({ intl }) => {
   }, []);
 
   const updateData = (key, value) => {
-    setData({ ...data, [key]: value });
+    setData({...data, [key]: value});
   };
 
   /**
@@ -118,13 +114,9 @@ const RegistrationPage = ({ intl }) => {
       !data.password ||
       !data.selected_membership
     ) {
-      toast.error(
-        intl.formatMessage({ id: "error.registration.required_fields_missing" })
-      );
+      toast.error(intl.formatMessage({id: "error.registration.required_fields_missing"}));
     } else if (!reEmail.test(data.email)) {
-      toast.error(
-        intl.formatMessage({ id: "error.registration.invalid_email" })
-      );
+      toast.error(intl.formatMessage({id: "error.registration.invalid_email"}));
     } else if (
       isPasswordInvalid(data.password) ||
       isPasswordConfirmInvalid(data.password, data.confirm_password)
@@ -176,11 +168,7 @@ const RegistrationPage = ({ intl }) => {
         );
       })
       .catch((err) => {
-        if (
-          err &&
-          err.verbose &&
-          err.verbose.toLowerCase().indexOf("email") !== -1
-        ) {
+        if (err && err.verbose && err.verbose.toLowerCase().indexOf("email") !== -1) {
           toast.error(
             intl.formatMessage({
               id: "error.registration.email_not_unique",
@@ -335,10 +323,7 @@ const RegistrationPage = ({ intl }) => {
                   />
                   <Form.Control
                     type="password"
-                    isValid={isPasswordConfirmValid(
-                      data.password,
-                      data.confirm_password
-                    )}
+                    isValid={isPasswordConfirmValid(data.password, data.confirm_password)}
                     isInvalid={isPasswordConfirmInvalid(
                       data.password,
                       data.confirm_password
@@ -347,9 +332,7 @@ const RegistrationPage = ({ intl }) => {
                       id: "generic.fields.confirm_password",
                     })}
                     className="mt-3"
-                    onChange={(e) =>
-                      updateData("confirm_password", e.target.value)
-                    }
+                    onChange={(e) => updateData("confirm_password", e.target.value)}
                   />
                 </Col>
                 <Col xs="12" md="6">
@@ -401,8 +384,7 @@ const RegistrationPage = ({ intl }) => {
                       </small>
                       <small
                         className={
-                          data.password &&
-                          data.password.length >= MIN_PASSWORD_LENGTH
+                          data.password && data.password.length >= MIN_PASSWORD_LENGTH
                             ? "requirement_met"
                             : ""
                         }
@@ -464,9 +446,7 @@ const RegistrationPage = ({ intl }) => {
                         term="month"
                         isSelected={
                           data.selected_membership
-                            ? data.selected_membership.indexOf(
-                                "monthly_early"
-                              ) !== -1
+                            ? data.selected_membership.indexOf("monthly_early") !== -1
                             : false
                         }
                         onChange={(v) => updateData("selected_membership", v)}
@@ -536,9 +516,7 @@ const RegistrationPage = ({ intl }) => {
                           id: "generic.fields.cc_number",
                         })}
                         className="mt-2"
-                        onChange={(e) =>
-                          updateData("cc_number", e.target.value)
-                        }
+                        onChange={(e) => updateData("cc_number", e.target.value)}
                       />
                       <FontAwesomeIcon icon={faCcVisa} className="ml-3 mr-2" />
                       <FontAwesomeIcon icon={faCcMastercard} className="mr-2" />
@@ -553,14 +531,11 @@ const RegistrationPage = ({ intl }) => {
                             autoComplete="cc-expiration"
                             maxLength="5"
                             isInvalid={
-                              data.cc_expiration &&
-                              !reCCExp.test(data.cc_expiration)
+                              data.cc_expiration && !reCCExp.test(data.cc_expiration)
                             }
                             pattern="/^[0-9]{2}/[0-9]{2}$/"
                             inputMode="numeric"
-                            onChange={(e) =>
-                              updateData("cc_expiration", e.target.value)
-                            }
+                            onChange={(e) => updateData("cc_expiration", e.target.value)}
                           />
                         </Col>
                         <Col xs="6">
@@ -573,9 +548,7 @@ const RegistrationPage = ({ intl }) => {
                             maxLength="4"
                             pattern="/^[0-9]{3,4}$/"
                             inputMode="numeric"
-                            onChange={(e) =>
-                              updateData("cc_cvv", e.target.value)
-                            }
+                            onChange={(e) => updateData("cc_cvv", e.target.value)}
                           />
                         </Col>
                       </Row>
@@ -588,12 +561,7 @@ const RegistrationPage = ({ intl }) => {
                       rel="noreferrer noopener"
                     >
                       <FormattedMessage id="auth.registration.payment.secured_by" />
-                      <FontAwesomeIcon
-                        icon={faStripe}
-                        size="2x"
-                        className="ml-1"
-                      />
-                      .
+                      <FontAwesomeIcon icon={faStripe} size="2x" className="ml-1" />.
                     </a>
                   </Form.Label>
                 </div>
@@ -605,9 +573,7 @@ const RegistrationPage = ({ intl }) => {
                 label={intl.formatMessage({
                   id: "auth.registration.sign_up_to_newsletter",
                 })}
-                onChange={(e) =>
-                  updateData("subscribe_to_newsletter", e.target.checked)
-                }
+                onChange={(e) => updateData("subscribe_to_newsletter", e.target.checked)}
               />
             </Form.Group>
             <Form.Group className="mt-3 premium_toggle_group">

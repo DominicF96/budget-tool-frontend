@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { injectIntl, FormattedMessage } from "react-intl";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import { login } from "../../redux/actions/auth";
-import { useDispatch } from "react-redux";
+import React, {useState} from "react";
+import {Button, Col, Form, Row} from "react-bootstrap";
+import {injectIntl, FormattedMessage} from "react-intl";
+import {useHistory} from "react-router";
+import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
+import {login} from "../../redux/actions/auth";
+import {useDispatch} from "react-redux";
 
-const LoginPage = ({ intl }) => {
+const LoginPage = ({intl}) => {
   const history = useHistory();
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const updateData = (key, value) => {
-    setData({ ...data, [key]: value });
+    setData({...data, [key]: value});
   };
 
   const isLoginAllowed = () => {
@@ -30,9 +30,7 @@ const LoginPage = ({ intl }) => {
           },
           (res, err) => {
             if (err) {
-              toast.error(
-                intl.formatMessage({ id: "error.login.bad_credentials" })
-              );
+              toast.error(intl.formatMessage({id: "error.login.bad_credentials"}));
             } else {
               history.push("/app");
             }
@@ -40,9 +38,7 @@ const LoginPage = ({ intl }) => {
         )
       );
     } else {
-      toast.error(
-        intl.formatMessage({ id: "error.login.provide_valid_credentials" })
-      );
+      toast.error(intl.formatMessage({id: "error.login.provide_valid_credentials"}));
     }
   };
 
@@ -72,11 +68,7 @@ const LoginPage = ({ intl }) => {
             id="spice_up_img"
           />
           <Row>
-            <Col
-              xs="12"
-              md={{ span: 6, offset: 3 }}
-              lg={{ span: 4, offset: 4 }}
-            >
+            <Col xs="12" md={{span: 6, offset: 3}} lg={{span: 4, offset: 4}}>
               <Form>
                 <Form.Control
                   type="text"

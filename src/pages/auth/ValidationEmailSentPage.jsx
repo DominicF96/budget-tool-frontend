@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { FormattedMessage, injectIntl } from "react-intl";
-import { Button } from "react-bootstrap";
-import { useLocation } from "react-router";
-import { get } from "../../utils/http/fetching_utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-toastify";
+import React, {useEffect, useState} from "react";
+import {FormattedMessage, injectIntl} from "react-intl";
+import {Button} from "react-bootstrap";
+import {useLocation} from "react-router";
+import {get} from "../../utils/http/fetching_utils";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleNotch} from "@fortawesome/free-solid-svg-icons";
+import {toast} from "react-toastify";
 
-const ValidationEmailSentPage = ({ intl }) => {
+const ValidationEmailSentPage = ({intl}) => {
   const location = useLocation();
   const [isSending, setIsSending] = useState(false);
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
@@ -22,13 +22,11 @@ const ValidationEmailSentPage = ({ intl }) => {
     get(`/auth/resend_validation/${id}`)
       .then((res) => {
         toast.success(
-          intl.formatMessage({ id: "auth.check_inbox.validation_email_resent" })
+          intl.formatMessage({id: "auth.check_inbox.validation_email_resent"})
         );
       })
       .catch((err) => {
-        toast.error(
-          intl.formatMessage({ id: "error.check_inbox.unable_to_send_email" })
-        );
+        toast.error(intl.formatMessage({id: "error.check_inbox.unable_to_send_email"}));
       })
       .finally(() => {
         setIsSending(false);
@@ -41,11 +39,7 @@ const ValidationEmailSentPage = ({ intl }) => {
 
   return (
     <div className="fade-in" id="validation_email_sent_page">
-      <img
-        src="/vectors/undraw_mailbox.svg"
-        alt="Check Inbox"
-        id="spice_up_img"
-      />
+      <img src="/vectors/undraw_mailbox.svg" alt="Check Inbox" id="spice_up_img" />
       <div className="fade-in">
         <h1>
           <FormattedMessage id="auth.check_inbox.title" />

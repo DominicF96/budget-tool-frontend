@@ -25,11 +25,7 @@ export const isPasswordValid = (password) => {
 };
 
 export const isPasswordInvalid = (password) => {
-  return (
-    password &&
-    password.length > 0 &&
-    !_testAllPasswordRegex(password)
-  );
+  return password && password.length > 0 && !_testAllPasswordRegex(password);
 };
 
 export const isPasswordConfirmValid = (password, confirm_password) => {

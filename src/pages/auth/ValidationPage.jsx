@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { Button } from "react-bootstrap";
-import { useHistory, useLocation } from "react-router";
-import { get } from "../../utils/http/fetching_utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import React, {useEffect, useState} from "react";
+import {FormattedMessage} from "react-intl";
+import {Button} from "react-bootstrap";
+import {useHistory, useLocation} from "react-router";
+import {get} from "../../utils/http/fetching_utils";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleNotch} from "@fortawesome/free-solid-svg-icons";
 
 const ValidationPage = () => {
   const history = useHistory();
@@ -36,8 +36,7 @@ const ValidationPage = () => {
         <FontAwesomeIcon icon={faCircleNotch} size="4x" spin />
       ) : error ? (
         <>
-          {error.verbose &&
-          error.verbose.toLowerCase().indexOf("expired") !== -1 ? (
+          {error.verbose && error.verbose.toLowerCase().indexOf("expired") !== -1 ? (
             <div className="fade-in">
               <h1>
                 <FormattedMessage id="error.oops" />

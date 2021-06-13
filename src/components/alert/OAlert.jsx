@@ -1,6 +1,6 @@
 import React from "react";
-import { Alert } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Alert} from "react-bootstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faExclamationCircle,
@@ -10,7 +10,7 @@ import {
 
 import "./oalert.scss";
 
-const OAlert = ({ variant, children }) => {
+const OAlert = ({variant, children}) => {
   const getAlertIcon = () => {
     switch (variant) {
       case "primary":
@@ -20,9 +20,7 @@ const OAlert = ({ variant, children }) => {
       case "danger":
         return <FontAwesomeIcon className="oalert_icon" icon={faTimesCircle} />;
       case "warning":
-        return (
-          <FontAwesomeIcon className="oalert_icon" icon={faExclamationCircle} />
-        );
+        return <FontAwesomeIcon className="oalert_icon" icon={faExclamationCircle} />;
       default:
         return <FontAwesomeIcon className="oalert_icon" icon={faInfoCircle} />;
     }
