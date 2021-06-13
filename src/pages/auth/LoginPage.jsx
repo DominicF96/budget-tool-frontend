@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import {login} from "../../redux/actions/auth";
 import {useDispatch} from "react-redux";
+import {setJWT} from "../../utils/http/fetching_utils";
 
 const LoginPage = ({intl}) => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const LoginPage = ({intl}) => {
     return data.username && data.password;
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = e => {
     e.preventDefault();
     if (isLoginAllowed()) {
       dispatch(
@@ -32,6 +33,8 @@ const LoginPage = ({intl}) => {
             if (err) {
               toast.error(intl.formatMessage({id: "error.login.bad_credentials"}));
             } else {
+              console.log(res);
+              setJWT(res.data.token);
               history.push("/app");
             }
           }
@@ -76,7 +79,7 @@ const LoginPage = ({intl}) => {
                   placeholder={intl.formatMessage({
                     id: "generic.fields.username",
                   })}
-                  onChange={(e) => updateData("username", e.target.value)}
+                  onChange={e => updateData("username", e.target.value)}
                 />
                 <Form.Control
                   type="password"
@@ -84,7 +87,7 @@ const LoginPage = ({intl}) => {
                   placeholder={intl.formatMessage({
                     id: "generic.fields.password",
                   })}
-                  onChange={(e) => updateData("password", e.target.value)}
+                  onChange={e => updateData("password", e.target.value)}
                 />
                 <Button
                   variant="primary"
@@ -92,7 +95,7 @@ const LoginPage = ({intl}) => {
                   id="login_btn"
                   className="mt-4 mb-3"
                   disabled={!isLoginAllowed()}
-                  onClick={(e) => {
+                  onClick={e => {
                     handleLogin(e);
                   }}
                 >

@@ -1,7 +1,19 @@
+import {useEffect} from "react";
 import {useSelector} from "react-redux";
+import {get} from "./utils/http/fetching_utils";
 
 const App = () => {
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
+
+  useEffect(() => {
+    get("/auth/is_authenticated")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="mt-5 container-fluid fade-in">

@@ -32,7 +32,7 @@ const ForgotPasswordPage = ({intl}) => {
     setData({...data, [key]: value});
   };
 
-  const resetPassword = (e) => {
+  const resetPassword = e => {
     e.preventDefault();
     let id = location.pathname.split("/")[3];
     if (
@@ -40,11 +40,11 @@ const ForgotPasswordPage = ({intl}) => {
       isPasswordConfirmValid(data.password, data.confirm_password)
     ) {
       post(`/auth/reset_password/${id}`, {password: data.password})
-        .then((res) => {
-          toast.success(intl.formatMessage({id: "password_reset.success"})); // TODO: Translate
+        .then(res => {
+          toast.success(intl.formatMessage({id: "password_reset.success"}));
           history.push("/auth/login");
         })
-        .catch((err) => {
+        .catch(err => {
           toast.error(intl.formatMessage({id: "error.password_reset.unable_to_reset"}));
         });
     } else {
@@ -82,7 +82,20 @@ const ForgotPasswordPage = ({intl}) => {
                     className="mt-3"
                     onFocus={() => setIsPasswordInfoOpen(true)}
                     onBlur={() => setIsPasswordInfoOpen(false)}
-                    onChange={(e) => updateData("password", e.target.value)}
+                    onChange={e => updateData("password", e.target.value)}
+                  />
+                  <Form.Control
+                    type="password"
+                    isValid={isPasswordConfirmValid(data.password, data.confirm_password)}
+                    isInvalid={isPasswordConfirmInvalid(
+                      data.password,
+                      data.confirm_password
+                    )}
+                    placeholder={intl.formatMessage({
+                      id: "generic.fields.confirm_password",
+                    })}
+                    className="mt-3"
+                    onChange={e => updateData("confirm_password", e.target.value)}
                   />
                   {isPasswordInfoOpen ? (
                     <div className="password_hints fade-in ml-2 my-2">
@@ -143,26 +156,13 @@ const ForgotPasswordPage = ({intl}) => {
                       </small>
                     </div>
                   ) : null}
-                  <Form.Control
-                    type="password"
-                    isValid={isPasswordConfirmValid(data.password, data.confirm_password)}
-                    isInvalid={isPasswordConfirmInvalid(
-                      data.password,
-                      data.confirm_password
-                    )}
-                    placeholder={intl.formatMessage({
-                      id: "generic.fields.confirm_password",
-                    })}
-                    className="mt-3"
-                    onChange={(e) => updateData("confirm_password", e.target.value)}
-                  />
                 </Form.Group>
                 <Button
                   variant="primary"
                   type="submit"
                   id="send_btn"
                   className="mt-4 mb-3"
-                  onClick={(e) => {
+                  onClick={e => {
                     resetPassword(e);
                   }}
                   disabled={
