@@ -1,4 +1,4 @@
-import {post} from "../../utils/http/fetching_utils";
+import {post, setJWT} from "../../utils/http/fetching_utils";
 
 // ========================================================================= //
 // ================================= TYPES ================================= //
@@ -19,14 +19,13 @@ const onLoginBegin = () => {
   };
 };
 
-const onLoginSuccess = (data) => {
+const onLoginSuccess = () => {
   return {
     type: ON_LOGIN_SUCCESS,
-    payload: data,
   };
 };
 
-const onLoginFailure = (error) => {
+const onLoginFailure = error => {
   return {
     type: ON_LOGIN_FAILURE,
     error,
@@ -46,35 +45,34 @@ const onAccessDenied = () => {
 };
 
 export const login = (data, callback = () => {}) => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(onLoginBegin());
-    post("/auth/login", {
-      username: data.username,
-      password: data.password,
-    })
-      .then((res) => {
-        dispatch(
-          onLoginSuccess({
-            ...res.data.user,
-            token: res.data.token,
-          })
-        );
-        callback(res);
-      })
-      .catch((err) => {
+    post(
+      "/auth/login",
+      {
+        username: data.username,
+        password: data.password,
+      },
+      res => {
+        setJWT(res.data.token);
+        onLoginSuccess();
+        callback(res, undefined);
+      },
+      err => {
         onLoginFailure(err);
         callback(undefined, err);
-      });
+      }
+    );
   };
 };
 
 export const logout = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(onLogout());
   };
 };
 export const handleAccessDenied = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(onAccessDenied());
   };
 };

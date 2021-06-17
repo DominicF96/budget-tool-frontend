@@ -10,7 +10,7 @@ export const reEmail = new RegExp(
 );
 export const reCCExp = new RegExp(/(0[1-9]|10|11|12)\/[0-9]{2}/);
 
-const _testAllPasswordRegex = (password) => {
+const _testAllPasswordRegex = password => {
   return (
     reOneLowercase.test(password) &&
     reOneUppercase.test(password) &&
@@ -20,11 +20,11 @@ const _testAllPasswordRegex = (password) => {
   );
 };
 
-export const isPasswordValid = (password) => {
+export const isPasswordValid = password => {
   return password && _testAllPasswordRegex(password);
 };
 
-export const isPasswordInvalid = (password) => {
+export const isPasswordInvalid = password => {
   return password && password.length > 0 && !_testAllPasswordRegex(password);
 };
 

@@ -8,23 +8,23 @@ import {
 const initialState = {
   error: undefined,
   data: undefined,
-  loadingLogin: false,
+  isLoadingLogin: false,
 };
 
-export default function auth(state = initialState, action = {}) {
+export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case ON_LOGIN_BEGIN:
       return {
         ...state,
-        loadingLogin: true,
+        isLoadingLogin: true,
         error: action.error,
       };
     case ON_LOGIN_SUCCESS:
-      return {...state, loadingLogin: false, ...action.payload};
+      return {...state, isLoadingLogin: false, ...action.payload};
     case ON_LOGIN_FAILURE:
       return {
         ...state,
-        loadingLogin: false,
+        isLoadingLogin: false,
         error: action.error,
       };
     case ON_USER_LOGOUT:

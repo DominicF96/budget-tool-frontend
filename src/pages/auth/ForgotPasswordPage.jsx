@@ -14,14 +14,14 @@ const ForgotPasswordPage = ({intl}) => {
   );
   const history = useHistory();
   const [email, setEmail] = useState("");
-  const sendResetEmail = (e) => {
+  const sendResetEmail = e => {
     e.preventDefault();
     if (reEmail.test(email)) {
       post("/auth/send_password_reset_link", {email})
-        .then((res) => {
+        .then(res => {
           toast.success("Check your emails");
         })
-        .catch((err) => {
+        .catch(err => {
           toast.error(intl.formatMessage({id: "error.mailing.failed_to_send"}));
         });
     } else {
@@ -68,7 +68,7 @@ const ForgotPasswordPage = ({intl}) => {
                   placeholder={intl.formatMessage({
                     id: "generic.fields.email",
                   })}
-                  onChange={(e) => {
+                  onChange={e => {
                     setEmail(e.target.value);
                   }}
                 />
@@ -77,7 +77,7 @@ const ForgotPasswordPage = ({intl}) => {
                   type="submit"
                   id="send_btn"
                   className="mt-4 mb-3"
-                  onClick={(e) => {
+                  onClick={e => {
                     sendResetEmail(e);
                   }}
                   disabled={!email || !reEmail.test(email)}

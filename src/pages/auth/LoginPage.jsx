@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import {login} from "../../redux/actions/auth";
 import {useDispatch} from "react-redux";
-import {setJWT} from "../../utils/http/fetching_utils";
 
 const LoginPage = ({intl}) => {
   const history = useHistory();
@@ -33,8 +32,6 @@ const LoginPage = ({intl}) => {
             if (err) {
               toast.error(intl.formatMessage({id: "error.login.bad_credentials"}));
             } else {
-              console.log(res);
-              setJWT(res.data.token);
               history.push("/app");
             }
           }

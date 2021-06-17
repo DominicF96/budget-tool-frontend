@@ -20,12 +20,12 @@ const ValidationEmailSentPage = ({intl}) => {
     let id = location.pathname.split("/")[3];
     setIsSending(true);
     get(`/auth/resend_validation/${id}`)
-      .then((res) => {
+      .then(res => {
         toast.success(
           intl.formatMessage({id: "auth.check_inbox.validation_email_resent"})
         );
       })
-      .catch((err) => {
+      .catch(err => {
         toast.error(intl.formatMessage({id: "error.check_inbox.unable_to_send_email"}));
       })
       .finally(() => {

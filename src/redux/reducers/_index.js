@@ -1,9 +1,11 @@
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
-import auth from "./auth";
 import thunk from "redux-thunk";
+import auth from "./auth";
+import user from "./user";
 
 const appReducer = combineReducers({
   auth,
+  user,
 });
 
 // This enables the Redux debugging tool in the browser

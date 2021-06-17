@@ -17,7 +17,7 @@ const PaymentCard = ({
   return (
     <button
       className="payment_card_btn_wrapper"
-      onClick={(e) => {
+      onClick={e => {
         e.preventDefault();
         onChange(id);
       }}

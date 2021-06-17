@@ -22,6 +22,7 @@ import {getLang} from "./utils/browserFunctions";
 
 import "./styles/index.scss";
 import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
+import RouteAuth from "./components/auth/RouteAuth";
 
 const dict = {
   fr,
@@ -42,7 +43,7 @@ ReactDOM.render(
             <Route path="/auth/reset_password/:id" component={ResetPasswordPage} />
             <Route path="/auth/validate/:id" component={ValidationPage} />
             <Route path="/auth/check_inbox/:id" component={ValidationEmailSentPage} />
-            <Route path="/app" component={App} />
+            <RouteAuth path="/app" component={App} />
             <Route path="/error500" component={ErrorPage} />
             <Route path="/error404" component={ErrorPage} />
             <Redirect from="/" to="/auth/login" />
