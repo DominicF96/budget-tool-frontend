@@ -17,13 +17,16 @@ const ForgotPasswordPage = ({intl}) => {
   const sendResetEmail = e => {
     e.preventDefault();
     if (reEmail.test(email)) {
-      post("/auth/send_password_reset_link", {email})
-        .then(res => {
+      post(
+        "/auth/send_password_reset_link",
+        {email},
+        res => {
           toast.success("Check your emails");
-        })
-        .catch(err => {
+        },
+        err => {
           toast.error(intl.formatMessage({id: "error.mailing.failed_to_send"}));
-        });
+        }
+      );
     } else {
       toast.error(intl.formatMessage({id: "error.mailing.provide_valid_email"}));
     }

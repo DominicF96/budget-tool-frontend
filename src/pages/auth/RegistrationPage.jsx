@@ -52,16 +52,18 @@ const RegistrationPage = ({intl}) => {
   const [ccData, setCcData] = useState({});
 
   useEffect(() => {
-    get("/stripe/get_prices")
-      .then(res => {
+    get(
+      "/stripe/get_prices",
+      res => {
         setRetrievedPrices({
           price: res.data.data[0].unit_amount / 100,
           term: res.data.data[0].recurring.interval,
         }); // TODO: Support multiple prices
-      })
-      .catch(err => {
+      },
+      err => {
         console.error("An error occured while retrieving prices.", err);
-      });
+      }
+    );
   }, []);
 
   const updateData = (key, value) => {
@@ -161,18 +163,20 @@ const RegistrationPage = ({intl}) => {
   };
 
   const createAccount = () => {
-    post("/auth/register", {
-      ...data,
-      form_completion_time: moment().diff(pageOpenedAt),
-    })
-      .then(res => {
+    post(
+      "/auth/register",
+      {
+        ...data,
+        form_completion_time: moment().diff(pageOpenedAt),
+      },
+      res => {
         console.log(res);
         history.push(`/auth/check_inbox/${res.data.temporary_link_id}`);
         toast.success(
           "Un courriel de confirmation a été envoyé, veuillez vérifier votre boîte de réception."
         );
-      })
-      .catch(err => {
+      },
+      err => {
         if (err && err.verbose && err.verbose.toLowerCase().indexOf("email") !== -1) {
           toast.error(
             intl.formatMessage({
@@ -196,7 +200,8 @@ const RegistrationPage = ({intl}) => {
             })
           );
         }
-      });
+      }
+    );
   };
 
   return (

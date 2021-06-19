@@ -14,15 +14,17 @@ const ValidationPage = () => {
 
   useEffect(() => {
     let id = location.pathname.split("/")[3];
-    get(`/auth/validate/${id}`)
-      .then(res => {
+    get(
+      `/auth/validate/${id}`,
+      res => {
         setIsValidating(false);
-      })
-      .catch(err => {
+      },
+      err => {
         console.log(err);
         setIsValidating(false);
         setError(err);
-      });
+      }
+    );
   }, [location.pathname]);
 
   return (

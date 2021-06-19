@@ -39,14 +39,17 @@ const ForgotPasswordPage = ({intl}) => {
       isPasswordValid(data.password) &&
       isPasswordConfirmValid(data.password, data.confirm_password)
     ) {
-      post(`/auth/reset_password/${id}`, {password: data.password})
-        .then(res => {
+      post(
+        `/auth/reset_password/${id}`,
+        {password: data.password},
+        res => {
           toast.success(intl.formatMessage({id: "password_reset.success"}));
           history.push("/auth/login");
-        })
-        .catch(err => {
+        },
+        err => {
           toast.error(intl.formatMessage({id: "error.password_reset.unable_to_reset"}));
-        });
+        }
+      );
     } else {
       toast.error(intl.formatMessage({id: "error.password_reset.bad_form"}));
     }

@@ -19,22 +19,27 @@ const ValidationEmailSentPage = ({intl}) => {
   const handleResend = () => {
     let id = location.pathname.split("/")[3];
     setIsSending(true);
-    get(`/auth/resend_validation/${id}`)
-      .then(res => {
+    get(
+      `/auth/resend_validation/${id}`,
+      res => {
         toast.success(
           intl.formatMessage({id: "auth.check_inbox.validation_email_resent"})
         );
-      })
-      .catch(err => {
-        toast.error(intl.formatMessage({id: "error.check_inbox.unable_to_send_email"}));
-      })
-      .finally(() => {
         setIsSending(false);
         setIsBtnDisabled(true);
         setTimeout(() => {
           setIsBtnDisabled(false);
         }, 15000);
-      });
+      },
+      err => {
+        toast.error(intl.formatMessage({id: "error.check_inbox.unable_to_send_email"}));
+        setIsSending(false);
+        setIsBtnDisabled(true);
+        setTimeout(() => {
+          setIsBtnDisabled(false);
+        }, 15000);
+      }
+    );
   };
 
   return (
