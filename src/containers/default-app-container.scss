@@ -1,0 +1,49 @@
+@import "src/styles/_mixins.scss";
+
+div#default_app_container {
+  nav#navbar {
+    position: fixed;
+    top: 0;
+    left: 350px;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    padding: $spacing_4;
+    padding-left: $spacing_6;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+  }
+
+  aside#sidebar {
+    @include box-shadow();
+    border-top-right-radius: $spacing_6;
+    border-bottom-right-radius: $spacing_6;
+    padding: $spacing_4;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    img#oreus_sidebar_logo {
+      margin: $spacing_6 0;
+    }
+    a.sidebar_link {
+      margin: $spacing_5 0;
+      display: block;
+      color: $gray_1 !important;
+      font-size: $text_size_4;
+      @include transition();
+      &:hover {
+        text-decoration: none;
+        color: $secondary_0 !important;
+      }
+    }
+  }
+
+  main#app_content {
+    margin-top: 80px;
+    margin-left: 350px;
+    padding: $spacing_5;
+  }
+}

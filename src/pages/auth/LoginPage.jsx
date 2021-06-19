@@ -32,7 +32,7 @@ const LoginPage = ({intl}) => {
             if (err) {
               toast.error(intl.formatMessage({id: "error.login.bad_credentials"}));
             } else {
-              history.push("/app");
+              history.push("/app/dashboard");
             }
           }
         )

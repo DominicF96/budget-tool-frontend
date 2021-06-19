@@ -79,5 +79,9 @@
   "error.login.bad_credentials": "Désolé, ces informations ne correspondent à aucun compte.",
   "error.password_reset.bad_form": "Veuillez fournir des mots de passe valide.",
   "error.password_reset.unable_to_reset": "Nous ne pouvons réinitialiser votre mot de passe pour l'instant, veuillez réessayer plus tard.",
-  "password_reset.success": "Votre mot de passe a été changé!"
+  "password_reset.success": "Votre mot de passe a été changé!",
+  "routes.dashboard": "Tableau de bord",
+  "routes.budget": "Budget",
+  "routes.transactions": "Transactions",
+  "routes.projects": "Projects"
 }
