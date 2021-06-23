@@ -1,5 +1,7 @@
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import thunk from "redux-thunk";
+
+import {ON_USER_LOGOUT} from "../actions/auth";
 import auth from "./auth";
 import user from "./user";
 
@@ -17,6 +19,9 @@ const composeEnhancers =
   compose;
 
 const rootReducer = (state, action) => {
+  if (action.type === ON_USER_LOGOUT) {
+    return appReducer(undefined, action);
+  }
   return appReducer(state, action);
 };
 

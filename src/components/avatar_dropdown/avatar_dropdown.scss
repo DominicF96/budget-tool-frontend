@@ -2,9 +2,14 @@
 
 .avatar_dropdown {
   .avatar {
-    margin-right: $spacing_2;
+    @media only screen and (min-width: $screen_md) {
+      margin-right: $spacing_2;
+    }
   }
   .dropdown-menu {
+    :not(.disabled) {
+      color: $secondary_1;
+    }
     border-radius: $spacing_5 !important;
     border: 0;
     overflow: hidden;

@@ -1,14 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FormattedMessage} from "react-intl";
 import {useLocation} from "react-router";
 
-import routes from "../../routes";
+import userRoutes from "../../pages/user/_routes";
+import adminRoutes from "../../pages/admin/_routes";
+import superadminRoutes from "../../pages/superadmin/_routes";
 
 import "./breadcrumbs.scss";
 
 const Breadcrumbs = ({className}) => {
   const location = useLocation();
+
+  const [routes, setRoutes] = useState(userRoutes);
+  useEffect(() => {
+    let section = location.pathname.split("/")[1];
+    console.log(section);
+    console.log(userRoutes, adminRoutes, superadminRoutes);
+    if (section.indexOf("app") !== -1) {
+      setRoutes(userRoutes);
+    } else if (section.indexOf("app") !== -1) {
+      setRoutes(adminRoutes);
+    } else {
+      setRoutes(superadminRoutes);
+    }
+  }, [location]);
 
   const renderTopLevel = () => {
     const topLevelUrl = location.pathname.split("/app")[1];

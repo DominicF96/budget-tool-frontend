@@ -1,13 +1,22 @@
 @import "src/styles/_mixins.scss";
 
 div#default_app_container {
-  margin-bottom: $spacing_8;
-  padding: $spacing_3;
+  main#app_content {
+    margin-top: 124px;
+    margin-bottom: $spacing_8;
+    padding: $spacing_3;
+  }
   @media only screen and (min-width: $screen_md) {
     main#app_content {
-      margin-top: 80px;
+      margin-top: 80px !important;
       margin-left: 350px;
       padding: $spacing_5;
     }
+  }
+  button#add_transaction_button {
+    position: absolute;
+    right: $spacing_4;
+    bottom: $spacing_4;
+    @include box-shadow();
   }
 }

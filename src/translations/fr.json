@@ -84,7 +84,11 @@
   "routes.budget": "Budget",
   "routes.transactions": "Transactions",
   "routes.projects": "Projects",
-  "navbar.user_menu.preferences": "Préférences",
+  "routes.profile": "Profil",
+  "navbar.user_menu.preferences": "Profil",
+  "navbar.user_menu.admin": "Admin",
+  "navbar.user_menu.superadmin": "Superadmin",
   "navbar.user_menu.contact_us": "Contactez-nous",
-  "navbar.user_menu.logout": "Déconnexion"
+  "navbar.user_menu.logout": "Déconnexion",
+  "generic.new_transaction": "Nouvelle transaction"
 }

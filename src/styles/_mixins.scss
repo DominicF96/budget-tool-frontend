@@ -89,7 +89,6 @@ $slow: 0.275s;
 
 @mixin box-shadow() {
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1), 0px 0px 50px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 0px 25px 25px 0px;
 }
 
 @mixin border-radius() {

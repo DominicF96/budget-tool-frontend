@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-import DefaultAppContainer from "../containers/DefaultAppContainer";
+import DefaultAppContainer from "../../containers/DefaultAppContainer";
 
 const DashboardPage = () => {
   const user = useSelector(state => state.user);
