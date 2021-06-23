@@ -1,7 +1,8 @@
 import React from "react";
+import DefaultAppContainer from "../containers/DefaultAppContainer";
 
 const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
+  return <DefaultAppContainer>ProjectsPage</DefaultAppContainer>;
 };
 
 export default ProjectsPage;

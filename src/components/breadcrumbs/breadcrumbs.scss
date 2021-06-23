@@ -1,7 +1,7 @@
 @import "src/styles/_mixins.scss";
 
 .breadcrumbs {
-  #top_level_breadcrumb {
+  .top_level_breadcrumb {
     display: inline-block;
     color: $gray_1 !important;
     font-size: $text_size_3;

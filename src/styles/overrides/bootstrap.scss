@@ -16,6 +16,7 @@
   @include transition(box-shadow);
   &:not([disabled]):hover {
     @include box-shadow();
+    border-radius: 9999px;
   }
   &.btn-primary {
     background-color: $secondary_1;

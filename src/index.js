@@ -43,7 +43,7 @@ ReactDOM.render(
             <Route path="/auth/reset_password/:id" component={ResetPasswordPage} />
             <Route path="/auth/validate/:id" component={ValidationPage} />
             <Route path="/auth/check_inbox/:id" component={ValidationEmailSentPage} />
-            <RouteAuth path="/app/dashboard" component={App} />
+            <RouteAuth path="/app" component={App} />
             <Route path="/error500" component={ErrorPage} />
             <Route path="/error404" component={ErrorPage} />
             <Redirect from="/" to="/auth/login" />

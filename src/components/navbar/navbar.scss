@@ -1,0 +1,38 @@
+@import "src/styles/_mixins.scss";
+
+nav#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing_2;
+  background-color: white;
+  .navbar_topline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img#oreus_navbar_logo {
+      height: 50px;
+    }
+    .breadcrumbs {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: $screen_md) {
+    padding: $spacing_2 $spacing_6;
+    left: 350px;
+    height: 80px;
+    .navbar_topline {
+      img#oreus_navbar_logo {
+        display: none;
+      }
+      .breadcrumbs {
+        display: block;
+      }
+    }
+    .breadcrumbs {
+      display: none;
+    }
+  }
+}

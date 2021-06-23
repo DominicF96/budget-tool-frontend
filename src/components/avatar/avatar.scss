@@ -1,9 +1,29 @@
 @import "src/styles/_mixins.scss";
 
 .avatar {
+  background-color: transparent;
+  border: 0;
+  color: $gray_1;
+  @include transition(color);
+  &button:hover {
+    color: $secondary_1 !important;
+    cursor: pointer;
+  }
   .avatar_thumbnail {
     border-radius: 9999px;
-    height: $spacing_5;
-    width: $spacing_5;
+    height: $spacing_6;
+    width: $spacing_6;
+    &.avatar_thumbnail_placeholder {
+      background-color: $gray_4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .avatar_name {
+    display: none;
+    @media only screen and (min-width: $screen_lg) {
+      display: inline-block;
+    }
   }
 }
