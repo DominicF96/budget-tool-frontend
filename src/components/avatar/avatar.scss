@@ -1,29 +1,43 @@
 @import "src/styles/_mixins.scss";
 
 .avatar {
+  display: inline-block;
   background-color: transparent;
   border: 0;
   color: $gray_1;
   @include transition(color);
-  &button:hover {
-    color: $secondary_1 !important;
-    cursor: pointer;
-  }
   .avatar_thumbnail {
     border-radius: 9999px;
     height: $spacing_6;
     width: $spacing_6;
     &.avatar_thumbnail_placeholder {
+      display: inline-block !important;
       background-color: $gray_4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .avatar_thumbnail_placeholder_icon {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
   .avatar_name {
     display: none;
     @media only screen and (min-width: $screen_lg) {
       display: inline-block;
+    }
+  }
+}
+
+button.avatar {
+  &:hover {
+    cursor: pointer;
+    .avatar_thumbnail.avatar_thumbnail_placeholder .avatar_thumbnail_placeholder_icon {
+      color: $secondary_1 !important;
+    }
+    .avatar_name {
+      color: $secondary_1 !important;
     }
   }
 }

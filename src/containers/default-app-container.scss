@@ -1,17 +1,9 @@
 @import "src/styles/_mixins.scss";
 
 div#default_app_container {
+  margin-bottom: $spacing_8;
+  padding: $spacing_3;
   @media only screen and (min-width: $screen_md) {
-    border-top-right-radius: $spacing_6;
-    border-bottom-right-radius: $spacing_6;
-    padding: $spacing_4;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 350px;
-    img#oreus_sidebar_logo {
-      margin: $spacing_6 0;
-    }
     main#app_content {
       margin-top: 80px;
       margin-left: 350px;

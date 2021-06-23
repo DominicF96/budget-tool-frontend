@@ -1,0 +1,17 @@
+@import "src/styles/_mixins.scss";
+
+.avatar_dropdown {
+  .avatar {
+    margin-right: $spacing_2;
+  }
+  .dropdown-menu {
+    border-radius: $spacing_5 !important;
+    border: 0;
+    overflow: hidden;
+    @include box-shadow();
+  }
+  #dropdown-basic {
+    padding: 0;
+    padding-right: $spacing_3;
+  }
+}

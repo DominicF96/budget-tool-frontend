@@ -12,7 +12,9 @@ const Avatar = ({avatar_url, firstname, lastname, onClick}) => {
           <img alt="User Avatar" src={avatar_url} className="avatar_thumbnail mr-2" />
         ) : (
           <div className="avatar_thumbnail avatar_thumbnail_placeholder mr-2">
-            <FontAwesomeIcon icon={faUser} />
+            <div className="avatar_thumbnail_placeholder_icon">
+              <FontAwesomeIcon icon={faUser} />
+            </div>
           </div>
         )}
         <span className="avatar_name">
@@ -27,7 +29,9 @@ const Avatar = ({avatar_url, firstname, lastname, onClick}) => {
           <img alt="User Avatar" src={avatar_url} className="avatar_thumbnail mr-2" />
         ) : (
           <div className="avatar_thumbnail avatar_thumbnail_placeholder mr-2">
-            <FontAwesomeIcon icon={faUser} />
+            <div className="avatar_thumbnail_placeholder_icon">
+              <FontAwesomeIcon icon={faUser} />
+            </div>
           </div>
         )}
         <span className="avatar_name">

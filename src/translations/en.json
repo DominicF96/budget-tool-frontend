@@ -83,5 +83,8 @@
   "routes.dashboard": "Dashboard",
   "routes.budget": "Budget",
   "routes.transactions": "Transactions",
-  "routes.projects": "Projects"
+  "routes.projects": "Projects",
+  "navbar.user_menu.preferences": "Preferences",
+  "navbar.user_menu.contact_us": "Contact Us",
+  "navbar.user_menu.logout": "Logout"
 }

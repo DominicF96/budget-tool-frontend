@@ -25,6 +25,10 @@ aside#sidebar {
     top: 0;
     bottom: 0;
     width: 325px;
+    display: inline-block;
+    img#oreus_sidebar_logo {
+      display: block;
+    }
     a.sidebar_link {
       margin: $spacing_5 0;
       display: block;
