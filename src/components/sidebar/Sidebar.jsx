@@ -14,16 +14,17 @@ import {useState} from "react";
 const Sidebar = () => {
   const location = useLocation();
   const [routes, setRoutes] = useState(userRoutes);
+  const [section, setSection] = useState("app");
   useEffect(() => {
-    let section = location.pathname.split("/")[1];
-    if (section.indexOf("app") !== -1) {
-      setRoutes(userRoutes);
-    } else if (section.indexOf("app") !== -1) {
+    setSection(location.pathname.split("/")[1]);
+    if (section.indexOf("admin") !== -1) {
       setRoutes(adminRoutes);
-    } else {
+    } else if (section.indexOf("superadmin") !== -1) {
       setRoutes(superadminRoutes);
+    } else {
+      setRoutes(userRoutes);
     }
-  }, [location]);
+  }, [section, location]);
 
   return (
     <aside id="sidebar">
@@ -35,9 +36,11 @@ const Sidebar = () => {
             <Link
               key={route.url}
               className={`sidebar_link ${
-                `/app${route.url}`.indexOf(location.pathname) !== -1 ? "active" : ""
+                `/${section}${route.url}`.indexOf(location.pathname) !== -1
+                  ? "active"
+                  : ""
               }`}
-              to={`/app${route.url}`}
+              to={`/${section}${route.url}`}
             >
               <FontAwesomeIcon icon={route.icon} className="mr-3" />
               <span className="sidebar_link_title">

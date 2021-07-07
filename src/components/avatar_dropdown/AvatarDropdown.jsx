@@ -53,12 +53,12 @@ const AvatarDropdown = ({user}) => {
         {user.role.name.indexOf("admin") !== -1 ? (
           <>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={() => redirectTo("/admin/dashboard")}>
+            <Dropdown.Item onClick={() => redirectTo("/admin")}>
               <FontAwesomeIcon icon={faUserTie} className="mr-2" />
               <FormattedMessage id="navbar.user_menu.admin" />
             </Dropdown.Item>
             {user.role.name.indexOf("superadmin") !== -1 ? (
-              <Dropdown.Item onClick={() => redirectTo("/superadmin/dashboard")}>
+              <Dropdown.Item onClick={() => redirectTo("/superadmin")}>
                 <FontAwesomeIcon icon={faUserSecret} className="mr-2" />
                 <FormattedMessage id="navbar.user_menu.superadmin" />
               </Dropdown.Item>

@@ -14,9 +14,12 @@ div#default_app_container {
     }
   }
   button#add_transaction_button {
-    position: absolute;
+    position: fixed;
     right: $spacing_4;
-    bottom: $spacing_4;
+    bottom: $spacing_9;
     @include box-shadow();
+    @media only screen and (min-width: $screen_md) {
+      bottom: $spacing_4;
+    }
   }
 }

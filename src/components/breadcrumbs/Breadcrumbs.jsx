@@ -15,19 +15,18 @@ const Breadcrumbs = ({className}) => {
   const [routes, setRoutes] = useState(userRoutes);
   useEffect(() => {
     let section = location.pathname.split("/")[1];
-    console.log(section);
-    console.log(userRoutes, adminRoutes, superadminRoutes);
-    if (section.indexOf("app") !== -1) {
-      setRoutes(userRoutes);
-    } else if (section.indexOf("app") !== -1) {
+    if (section.indexOf("admin") !== -1) {
       setRoutes(adminRoutes);
-    } else {
+    } else if (section.indexOf("superadmin") !== -1) {
       setRoutes(superadminRoutes);
+    } else {
+      setRoutes(userRoutes);
     }
   }, [location]);
 
   const renderTopLevel = () => {
-    const topLevelUrl = location.pathname.split("/app")[1];
+    let section = location.pathname.split("/")[1];
+    const topLevelUrl = location.pathname.split(`/${section}`)[1];
     const topLevelRoute = routes.filter(route => route.url === topLevelUrl)[0];
     return (
       <span id="id" className="mr-3">
